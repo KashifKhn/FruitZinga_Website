@@ -1,4 +1,5 @@
-# Welcome to FruitZinga
+## Welcome to
+# FruitZinga
 
 ## Description
 
@@ -17,15 +18,16 @@ FruitZinga is a platform that celebrates the natural goodness of fruits and thei
 
 ## Live Demo
 
-Check out the live demo of FruitZinga at: [https://www.fruitzinga-demo.com](https://www.fruitzinga-demo.com)
+Check out the live demo of FruitZinga at: [https://kashifkhn.github.io/FruitZinga_Website/](https://kashifkhn.github.io/FruitZinga_Website/)
 
 ## Features
 
 ## Installation
 
-1. Clone this repository: `git clone https://github.com/your-username/fruitzinga.git`
+1. Clone this repository: `git clone https://github.com/KashifKhn/FruitZinga_Website.git`
 2. Navigate to the project directory: `cd fruitzinga`
-3. [Add any specific installation steps or dependencies]
+3. After cloning the repository, open the index.html file in your web browser.
+4. The website should now be visible, and you can explore the different sections using the navigation menu.
 
 ## Usage
 
@@ -41,14 +43,13 @@ We welcome contributions to improve FruitZinga. If you want to contribute, pleas
 4. Push the changes to your forked repository: `git push origin feature/your-feature-name`
 5. Open a pull request, and we will review your changes.
 
-Please make sure to follow our [code of conduct](CODE_OF_CONDUCT.md) during the process.
 
 ## License
 
-[MIT License](LICENSE)
+This project is licensed under the: [MIT License](LICENSE)
 
 ## Contact
 
-If you have any questions or feedback, feel free to contact us at [your-email@example.com].
+If you have any questions or feedback, feel free to contact us at [Kashifkhnx04@gmail.com].
 
 Thank you for visiting FruitZinga. We hope you savor the flavors and embrace the zing of nature's bounty!
