@@ -13,7 +13,19 @@
 </head>
 
 <body>
-    <header class="primary-header flex">
+    <section class="search-section text-center">
+        <div class="container flex-dir-col">
+            <button class="search-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="search-section-container flex-dir-col">
+                <h3 class="fs-500 text-clr-white ff-poppins letter-spacing-7 fw-700">SEARCH FOR:</h3>
+                <input class="fs-900 text-clr-white fw-900 text-center" type="text" placeholder="Keywords">
+                <button type="submit" class="primary-btn search-submit-btn">Search <i
+                        class="fa-solid fa-magnifying-glass"> </i></button>
+            </div>
+        </div>
+    </section>
+
+    <header class="primary-header primary-header-bg flex-dir-col">
         <nav class="primary-navigation flex">
             <div class="container flex primary-nav-container">
                 <div class="primary-logo">
@@ -23,7 +35,8 @@
                 </div>
                 <ul class="nav-links mobile-hide">
                     <li class="nav-link">
-                        <a class="hover-link active-Link " href="#">Home <i class="fa-sharp fa-solid fa-angle-down"></i></a>
+                        <a class="hover-link active-Link " href="#">Home <i
+                                class="fa-sharp fa-solid fa-angle-down"></i></a>
                         <ul class="sub-nav-links">
                             <li class="sub-nav-link"><a class="hover-link" href="#">Static Home</a></li>
                             <li class="sub-nav-link"><a class="hover-link" href="#">Slider Home</a></li>
@@ -64,24 +77,31 @@
                     <a class="hover-link text-clr-white" href="#">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a>
-                    <a class="hover-link text-clr-white" href="#">
+                    <button class="hover-link text-clr-white search-open-btn">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
+                    </button>
                 </div>
                 <div class="desktop-hide humberger-menu">
-                    <button class="hamburger-btn" >
+                    <button class="hamburger-btn">
                         <div class="hamburger-icon"></div>
                     </button>
                 </div>
             </div>
         </nav>
+        <div class="primary-header-content flex-dir-col text-center">
+            <p class="uppercase fs-200 text-clr-primary fw-700 ff-open-sans letter-spacing-7">Fresh & Organic</p>
+            <h1 class="fs-900 text-clr-white fw-900 ff-poppins">Delicious Seasonal Fruits</h1>
+            <div class="primary-header-btn flex-dir-col">
+                <a href="#" class="fs-100 primary-btn">Fruit Collection</a>
+                <a href="#" class="fs-100 secondary-btn">Contact Us</a>
+            </div>
+        </div>
     </header>
     <main>
 
     </main>
 
     <footer>
-
 
     </footer>
     <div class="spacer" style="height: 100vh;"></div>

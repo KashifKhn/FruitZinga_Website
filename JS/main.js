@@ -29,4 +29,16 @@ hamburgerBtn.addEventListener("click", () => {
 //         link.classList.add('active-Link');
 // });
 
+// ********************** Search Menu *********************************
+const searchCloseBtn = document.querySelector(".search-close-btn");
+const searchMenu = document.querySelector(".search-section");
+const searchOpenBtn = document.querySelector(".search-open-btn");
+searchCloseBtn.addEventListener('click', () => {
+    if(searchMenu.classList.contains("search-section-active"))
+        searchMenu.classList.remove("search-section-active");
+});
 
+searchOpenBtn.addEventListener('click', () => {
+    if(!searchMenu.classList.contains("search-section-active"))
+        searchMenu.classList.add("search-section-active");
+});
