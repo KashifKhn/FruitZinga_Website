@@ -42,3 +42,5 @@ searchOpenBtn.addEventListener('click', () => {
     if(!searchMenu.classList.contains("search-section-active"))
         searchMenu.classList.add("search-section-active");
 });
+
+
