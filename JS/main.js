@@ -17,6 +17,31 @@ hamburgerBtn.addEventListener("click", () => {
     navLinks.classList.toggle("mobile-active");
 });
 
+const plusBtn = document.querySelectorAll(".plus-btn");
+plusBtn.forEach((btn) => {
+    const plus = btn.querySelector(".fa-plus");
+    btn.addEventListener("click", () => {
+        const allSubNavs = document.querySelectorAll(".sub-nav-links");
+        allSubNavs.forEach((subNav) => {
+            if (subNav !== btn.nextElementSibling) {
+                subNav.classList.remove("active-sub-nav-link");
+            }
+        });
+        const subNav = btn.nextElementSibling;
+        subNav.classList.toggle("active-sub-nav-link"); 
+        if(subNav.classList.contains("active-sub-nav-link")) {
+            plus.className = "fa-solid fa-minus";
+            navLinks.style.minHeight=  "82%";
+        }
+        else {
+            plus.className = "fa-solid fa-plus";
+            navLinks.style.minHeight=  "0%";
+        }
+    });
+});
+
+
+
 // ********************** active Links ********************************* 
 // const activePage = window.location.pathname;
 // const navLinks = document.querySelectorAll("nav a");

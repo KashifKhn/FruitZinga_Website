@@ -370,10 +370,6 @@ body {
   color: hsl(var(--clr-light));
 }
 
-.sub-nav-links-active {
-
-}
-
 @media (min-width: 48em) {
   .nav-links li:hover .sub-nav-links {
     display: flex;
@@ -386,16 +382,20 @@ body {
   color: hsl(var(--clr-white));
 }
 
-
 .desktop-hide {
   display: none;
 }
 
 /* hamburger btn design */
+.body {
+  position: relative;
+}
+
 .hamburger-btn {
+  position: fixed;
+  top: 4%;
   align-items: center;
   justify-content: center;
-  position: relative;
   width: 35px;
   height: 35px;
   background-color: hsl(var(--clr-primary));
@@ -481,6 +481,10 @@ body {
   padding-inline: var(--size-500);
 }
 
+.nav-link p {
+  display: none;
+}
+
 /* *************************************************** */
 /* ***************** Header Responsive *************** */
 
@@ -548,36 +552,37 @@ body {
     padding-block: 1rem;
     margin-left: 0;
     padding-left: 0;
+    column-gap: 1rem;
     margin-right: 5rem;
     width: 80%;
     max-height: 0;
-    /* min-height: 100%; */
+    height: auto;
     background-color: hsl(var(--clr-secondary));
     box-shadow: 0 0 20px hsl(var(--clr-secondary));
     overflow: hidden;
     transition: none;
   }
 
-  .nav-link i {
-    display: inline-block;
+  .nav-link p {
+    display: block;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: auto;
+    height: auto;
+    padding: 5px 8px;
+    background: hsl(var(--clr-light));
   }
 
-  .nav-link span {
-    display: inline-block;
-  }
 
-  .nav-link a {
-    display: flex;
-    justify-content: space-between;
+  .nav-link .fa-angle-down {
+    display: none;
   }
 
   .nav-links.mobile-active {
     display: flex;
-    /* Display the menu when active */
     max-height: 350px;
-    /* Set the desired max-height */
     animation: expandNav 0.5s ease forwards;
-    /* Apply the animation */
   }
 
   @keyframes expandNav {
@@ -593,7 +598,6 @@ body {
 
   .nav-links:not(.mobile-active) {
     animation: collapseNav 0.5s ease forwards;
-    /* Apply the animation */
   }
 
   @keyframes collapseNav {
@@ -613,16 +617,17 @@ body {
 
   .nav-links li {
     list-style: none;
-    border-top: 2px solid hsl(var(--clr-light));
+    border-bottom: 2px solid hsl(var(--clr-light));
     width: 100%;
   }
 
-  .nav-links li:first-child {
-    border-top: none;
+  .nav-links .nav-link:last-child {
+    border-bottom: none;
+
   }
 
   .nav-links li a {
-    display: block;
+    display: inline-block;
     padding-top: .5rem;
     padding-left: 1rem;
     font-size: var(--fs-200);
@@ -636,6 +641,7 @@ body {
     display: none;
     gap: 0;
     position: static;
+    width: 100%;
     min-height: auto;
     padding: 1rem 1rem;
     justify-content: flex-start;
@@ -644,6 +650,18 @@ body {
     border-radius: 3px;
     -webkit-box-shadow: 0 0 20px hsl(var(--clr-secondary) );
     box-shadow: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .sub-nav-link {
+    margin-bottom: 5px;
+    width: 100%;
+    border-bottom: 2px solid hsl(var(--clr-light));
+  }
+
+  .active-sub-nav-link.sub-nav-links {
+    transition: all 0.5s ease-in-out;
+    display: flex;
   }
 
   .header-icon a,
