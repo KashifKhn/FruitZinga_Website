@@ -9,7 +9,8 @@
   --clr-secondary: 199, 74%, 8%;
   --clr-secondary-light: 200, 74%, 10%;
   --clr-dark: 0, 0%, 0%;
-  --clr-light: 0, 0%, 33%;
+  --clr-light-dark: 0, 0%, 33%;
+  --clr-light: 0, 0%, 96%;
   --clr-shadow: 0, 0%, 89%;
   /* font */
 
@@ -70,26 +71,15 @@
 
 /* ***************** CSS RESET ***************** */
 
-/* Box sizing rules */
+/* Box sizing rules remove default margin and padding*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
@@ -211,12 +201,9 @@ ul {
 
 /* ********************************************************* */
 /* *************************************************** */
-/* ***************** Header Section***************** */
+/* ***************** Header***************** */
 /* *************************************************** */
 /* ********************************************************* */
-
-
-
 
 /* *************************************************** */
 /* ***************** Search Area  ***************** */
@@ -363,11 +350,11 @@ body {
   background: hsl(var(--clr-white));
   border-radius: 3px;
   -webkit-box-shadow: 0 0 20px hsl(var(--clr-secondary) );
-  box-shadow: 0 0 20px hsl(var(--clr-light) );
+  box-shadow: 0 0 20px hsl(var(--clr-light-dark) );
 }
 
 .sub-nav-links li a {
-  color: hsl(var(--clr-light));
+  color: hsl(var(--clr-light-dark));
 }
 
 @media (min-width: 48em) {
@@ -387,13 +374,10 @@ body {
 }
 
 /* hamburger btn design */
-.body {
-  position: relative;
-}
-
 .hamburger-btn {
   position: fixed;
   top: 4%;
+  right: 5%;
   align-items: center;
   justify-content: center;
   width: 35px;
@@ -402,16 +386,19 @@ body {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  padding-inline: 5px;
 }
+
+
 
 .hamburger-icon,
 .hamburger-icon::after,
 .hamburger-icon::before {
   display: flex;
-  align-items: flex-end;
   background-color: hsl(var(--clr-secondary));
   width: 25px;
   height: 2.5px;
+  
   position: absolute;
   transition: all .7s;
 }
@@ -490,7 +477,7 @@ body {
 
 @media (max-width: 62em) {
   .primary-navigation .primary-nav-container {
-    justify-content: space-around
+    justify-content: space-around;
   }
 
   .primary-header-content h1 {
@@ -571,7 +558,7 @@ body {
     width: auto;
     height: auto;
     padding: 5px 8px;
-    background: hsl(var(--clr-light));
+    background: hsl(var(--clr-light-dark));
   }
 
 
@@ -617,7 +604,7 @@ body {
 
   .nav-links li {
     list-style: none;
-    border-bottom: 2px solid hsl(var(--clr-light));
+    border-bottom: 2px solid hsl(var(--clr-light-dark));
     width: 100%;
   }
 
@@ -656,12 +643,17 @@ body {
   .sub-nav-link {
     margin-bottom: 5px;
     width: 100%;
-    border-bottom: 2px solid hsl(var(--clr-light));
+    border-bottom: 2px solid hsl(var(--clr-light-dark));
   }
 
   .active-sub-nav-link.sub-nav-links {
     transition: all 0.5s ease-in-out;
     display: flex;
+  }
+
+  .header-icon {
+    --flex-gap: 1rem;
+    margin-right: 1rem;
   }
 
   .header-icon a,
@@ -678,6 +670,115 @@ body {
     display: block;
   }
 }
+
+
+/* ********************************************************* */
+/* *************************************************** */
+/* ***************** Main ***************** */
+/* *************************************************** */
+/* ********************************************************* */
+
+
+
+
+/* *************************************************** */
+/* ***************** Order Experience Section ***************** */
+/* *************************************************** */
+
+.order-experience-section {
+  background: hsl(var(--clr-light));
+}
+
+.OE-section-container {
+  justify-content: space-between;
+  padding-block: calc(var(--size-900) + 2rem);
+}
+
+.OE-img-icon i {
+  display: block;
+  font-size: 24px;
+  margin-right: 15px;
+  color: hsl(var(--clr-primary));
+  width: 65px;
+  height: 65px;
+  text-align: center;
+  line-height: 60px;
+  border: 2px hsl(var(--clr-primary)) dotted;
+  border-radius: 50%;
+}
+
+
+@media (max-width: 62em) {
+  .OE-section-container {
+    flex-wrap: wrap;
+  }
+  .OE-section-item {
+    margin-bottom: var(--size-500);
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 48em) {
+  .OE-section-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .OE-section-item {
+    flex-basis: 100%;
+  }
+
+}
+
+
+/* *************************************************** */
+/* ***************** Products Section ***************** */
+/* *************************************************** */
+.product-section-container {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.product-header {
+  align-items: center;
+}
+
+.product-header p {
+  max-width: 530px;
+}
+
+.product-card-container {
+  flex-wrap: wrap;
+}
+
+.product-card {
+  padding-block: var(--size-900);
+  border-radius: 5px;
+  flex-basis: 32%;
+  flex-wrap: wrap;
+}
+
+.product-card:hover.shadow {
+  -webkit-box-shadow: none;
+  box-shadow:none;
+}
+
+@media (max-width: 62em) {
+  .product-card {
+    flex-basis: 48%;
+  }
+}
+
+@media (max-width: 48em) {
+  .product-card {
+    flex-basis: 100%;
+  }
+}
+
+
+
+
 
 
 
@@ -699,11 +800,28 @@ body {
   gap: var(--flex-dir-gap, 1rem);
 }
 
+.ai-jc-center {
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
   max-width: 70rem;
-  width: 70rem;
+  width: 100%;
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: var(--con-pd-inline, 1rem);
+}
+
+@media (max-width: 62em) {
+  .container {
+    --con-pd-inline: 1.3rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .container {
+    padding-inline: 1.8rem;
+  }
 }
 
 .d-block {
@@ -727,7 +845,7 @@ body {
 }
 
 .text-clr-light {
-  color: hsl(var(--clr-light));
+  color: hsl(var(--clr-light-dark));
 }
 
 .text-clr-white {
@@ -846,9 +964,25 @@ body {
   text-transform: uppercase;
 }
 
+.max-mg-block {
+  margin-block: var(--size-900);
+}
+
+.max-pd-block {
+  padding-block: var(--size-900);
+}
+
+
 .shadow {
   -webkit-box-shadow: 0 0 20px hsl(var(--clr-shadow));
   box-shadow: 0 0 20px hsl(var(--clr-shadow));
+  transition: all .3s ease-in-out;
+}
+
+.line {
+  width: 20%;
+  height: 3px;
+  background-color: hsl(var(--clr-primary));
 }
 
 .underline-hover-link {
@@ -903,6 +1037,7 @@ body {
 .primary-btn:hover,
 .primary-btn:focus {
   background-color: hsl(var(--clr-secondary));
+  color: hsl(var(--clr-primary));
 }
 
 .secondary-btn {
