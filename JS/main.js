@@ -155,3 +155,21 @@ document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("scroll", infiniteScroll);
 CarouselWrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 CarouselWrapper.addEventListener("mouseleave", autoPlay);
+
+// Back to top button
+const scrollTopBtn = document.querySelector(".scroll-to-top")
+
+window.addEventListener('scroll', ()=> {
+    if(window.scrollY > 300)
+    scrollTopBtn.style.display = "block"
+    else 
+    scrollTopBtn.style.display = "none"
+        
+});
+
+scrollTopBtn.addEventListener('click', ()=> {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
