@@ -806,6 +806,75 @@ body {
   }
 }
 
+/* *************************************************** */
+/* ***************** testimonial Section ***************** */
+/* *************************************************** */
+
+.carousel-wrapper {
+
+  position: relative;
+}
+
+.carousel-wrapper .carousel{
+  display: grid;
+  grid-auto-flow: column;
+  /* grid-auto-columns: calc((100% / 3) - 12px); */
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel.carousel-no-transition {
+  scroll-behavior: auto;
+}
+
+.carousel.carousel-dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.carousel.carousel-dragging .carousel-card {
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel :where(.carousel-card, .carousel-card-img) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .carousel-card {
+  flex-direction: column;
+  height: auto;
+  padding-bottom: 15px;
+  list-style: none;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.carousel-card .carousel-card-img img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.carousel-card p {
+  max-width: 700px;
+}
+
+.carousel-card i {
+  opacity: 0.3;
+}
+
 
 
 
