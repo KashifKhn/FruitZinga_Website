@@ -71,102 +71,134 @@ searchOpenBtn.addEventListener('click', () => {
 
 
 // ********************** carousel testimonial *********************************
-const CarouselWrapper = document.querySelector(".carousel-wrapper");
-const carousel = document.querySelector(".carousel");
-const carouselFirstCardWidth = carousel.querySelector(".carousel-card").offsetWidth;
-const carouselChildrens = [...carousel.children];
+const testimonialCarouselWrapper = document.querySelector(".testimonial-carousel-wrapper");
+const testimonialCarousel = document.querySelector(".testimonial-carousel");
+const testimonialCarouselFirstCardWidth = testimonialCarousel.querySelector(".testimonial-carousel-card").offsetWidth;
+const testimonialCarouselChildrens = [...testimonialCarousel.children];
 
-const companyCarouselWrapper = document.querySelector(".company-carousel-wrapper");
-const companyCarousel = document.querySelector(".company-carousel");
-const companyCarouselFirstCardWidth = companyCarousel.querySelector(".company-carousel-card").offsetWidth;
-const companyCarouselChildrens = [...companyCarousel.children];
-
-let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
-
-let cardPerViewCompany = Math.round(companyCarousel.offsetWidth / companyCarouselFirstCardWidth);
-let cardPerView = Math.round(carousel.offsetWidth / carouselFirstCardWidth);
-
-carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
-    carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+let isDraggingTestimonialCarousel = false;
+let isAutoPlayTestimonialCarousel = true;
+let testimonialCarouselStartX;
+let testimonialCarouselStartScrollLeft;
+let testimonialCarouselTimeoutId;
+let testimonialCarouselCardPerView = Math.round(testimonialCarousel.offsetWidth / testimonialCarouselFirstCardWidth);
+testimonialCarouselChildrens.slice(-testimonialCarouselCardPerView).reverse().forEach(card => {
+    testimonialCarousel.insertAdjacentHTML("afterbegin", card.outerHTML);
 });
-carouselChildrens.slice(0, cardPerView).forEach(card => {
-    carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+testimonialCarouselChildrens.slice(0, testimonialCarouselCardPerView).forEach(card => {
+    testimonialCarousel.insertAdjacentHTML("beforeend", card.outerHTML);
 });
-
-companyCarouselChildrens.slice(-cardPerViewCompany).reverse().forEach(card => {
-    companyCarousel.insertAdjacentHTML("afterbegin", card.outerHTML);
-});
-companyCarouselChildrens.slice(0, cardPerViewCompany).forEach(card => {
-    companyCarousel.insertAdjacentHTML("beforeend", card.outerHTML);
-});
-
-carousel.classList.add("carousel-no-transition");
-carousel.scrollLeft = carousel.offsetWidth;
-carousel.classList.remove("carousel-no-transition");
-
-companyCarousel.classList.add("carousel-no-transition");
-companyCarousel.scrollLeft = companyCarousel.offsetWidth;
-companyCarousel.classList.remove("carousel-no-transition");
-
-const dragStart = (e) => {
-    isDragging = true;
-    carousel.classList.add("carousel-dragging");
-    companyCarousel.classList.add("carousel-dragging");
-    startX = e.pageX;
-    startScrollLeft = carousel.scrollLeft;
-    startScrollLeft = companyCarousel.scrollLeft;
+testimonialCarousel.classList.add("carousel-no-transition");
+testimonialCarousel.scrollLeft = testimonialCarousel.offsetWidth;
+testimonialCarousel.classList.remove("carousel-no-transition");
+const testimonialCarouselDragStart = (e) => {
+    isDraggingTestimonialCarousel = true;
+    testimonialCarousel.classList.add("carousel-dragging");
+    testimonialCarouselStartX = e.pageX;
+    testimonialCarouselStartScrollLeft = testimonialCarousel.scrollLeft;
 }
-
-const dragging = (e) => {
-    if (!isDragging) return;
-    carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
-    companyCarousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+const testimonialCarouselDragging = (e) => {
+    if(!isDraggingTestimonialCarousel) return;  
+    testimonialCarousel.scrollLeft = testimonialCarouselStartScrollLeft - (e.pageX - testimonialCarouselStartX);
 }
-const dragStop = () => {
-    isDragging = false;
-    carousel.classList.remove("carousel-dragging");
-    companyCarousel.classList.remove("carousel-dragging");
+const testimonialCarouselDragStop = () => {
+    isDraggingTestimonialCarousel = false;
+    testimonialCarousel.classList.remove("carousel-dragging");
 }
-
-const infiniteScroll = () => {
-    if (carousel.scrollLeft === 0 || companyCarousel.scrollLeft === 0) {
-        carousel.classList.add("carousel-no-transition");
-        carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
-        carousel.classList.remove("carousel-no-transition");
-        companyCarousel.classList.add("carousel-no-transition");
-        companyCarousel.scrollLeft = companyCarousel.scrollWidth - (2 * companyCarousel.offsetWidth);
-        companyCarousel.classList.remove("carousel-no-transition");
+const testimonialCarouselInfiniteScroll = () => {
+    if(testimonialCarousel.scrollLeft === 0) {
+        testimonialCarousel.classList.add("carousel-no-transition");
+        testimonialCarousel.scrollLeft = testimonialCarousel.scrollWidth - (2 * testimonialCarousel.offsetWidth);
+        testimonialCarousel.classList.remove("carousel-no-transition");
     }
-    else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth || Math.ceil(companyCarousel.scrollLeft) === companyCarousel.scrollWidth - companyCarousel.offsetWidth) {
-        carousel.classList.add("carousel-no-transition");
-        carousel.scrollLeft = carousel.offsetWidth;
-        carousel.classList.remove("carousel-no-transition");
-        companyCarousel.classList.add("carousel-no-transition");
-        companyCarousel.scrollLeft = companyCarousel.offsetWidth;
-        companyCarousel.classList.remove("carousel-no-transition");
+    else if(Math.ceil(testimonialCarousel.scrollLeft) === testimonialCarousel.scrollWidth - testimonialCarousel.offsetWidth) {
+        testimonialCarousel.classList.add("carousel-no-transition");
+        testimonialCarousel.scrollLeft = testimonialCarousel.offsetWidth;
+        testimonialCarousel.classList.remove("carousel-no-transition");
     }
-    clearTimeout(timeoutId);
-    if (!CarouselWrapper.matches(":hover") || !companyCarouselWrapper.matches(":hover")) autoPlay();
+    clearTimeout(testimonialCarouselTimeoutId);
+    if(!testimonialCarouselWrapper.matches(":hover")) testimonialCarouselAutoPlay();
 }
-const autoPlay = () => {
-    timeoutId = setTimeout(() => carousel.scrollLeft += carouselFirstCardWidth, 5000);
-    timeoutId = setTimeout(() => companyCarousel.scrollLeft += companyCarouselFirstCardWidth, 4500);
+const testimonialCarouselAutoPlay = () => {
+    if(!isAutoPlayTestimonialCarousel) return;
+    testimonialCarouselTimeoutId = setTimeout(() => testimonialCarousel.scrollLeft += testimonialCarouselFirstCardWidth, 3500);
+}
+testimonialCarouselAutoPlay();
+testimonialCarousel.addEventListener("mousedown", testimonialCarouselDragStart);
+testimonialCarousel.addEventListener("mousemove", testimonialCarouselDragging);
+document.addEventListener("mouseup", testimonialCarouselDragStop);
+testimonialCarousel.addEventListener("scroll", testimonialCarouselInfiniteScroll);
+testimonialCarouselWrapper.addEventListener("mouseenter", () => clearTimeout(testimonialCarouselTimeoutId));
+testimonialCarouselWrapper.addEventListener("mouseleave", testimonialCarouselAutoPlay);
+
+// ********************** Company Logo carousel *********************************
+const brandCarouselWrapper = document.querySelector(".brand-carousel-wrapper");
+const brandCarousel = document.querySelector(".brand-carousel");
+const brandCarouselFirstCardWidth = brandCarousel.querySelector(".brand-carousel-card").offsetWidth;
+const brandCarouselChildrens = [...brandCarousel.children];
+
+let brandCarouselIsDragging = false;
+let brandCarouselIsAutoPlay = true;
+let brandCarouselStartX;
+let brandCarouselStartScrollLeft;
+let brandCarouselTimeoutId;
+let brandCarouselCardPerView = Math.round(brandCarousel.offsetWidth / brandCarouselFirstCardWidth);
+brandCarouselChildrens.slice(-brandCarouselCardPerView).reverse().forEach(card => {
+    brandCarousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+});
+
+brandCarouselChildrens.slice(0, brandCarouselCardPerView).forEach(card => {
+    brandCarousel.insertAdjacentHTML("beforeend", card.outerHTML);
+});
+
+brandCarousel.classList.add("carousel-no-transition");
+brandCarousel.scrollLeft = brandCarousel.offsetWidth;
+brandCarousel.classList.remove("carousel-no-transition");
+
+
+const brandCarouselDragStart = (e) => {
+    brandCarouselIsDragging = true;
+    brandCarousel.classList.add("carousel-dragging");
+    brandCarouselStartX = e.pageX;
+    brandCarouselStartScrollLeft = brandCarousel.scrollLeft;
 }
 
-autoPlay();
-carousel.addEventListener("mousedown", dragStart);
-carousel.addEventListener("mousemove", dragging);
-document.addEventListener("mouseup", dragStop);
-carousel.addEventListener("scroll", infiniteScroll);
-CarouselWrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
-CarouselWrapper.addEventListener("mouseleave", autoPlay);
+const brandCarouselDragging = (e) => {
+    if(!brandCarouselIsDragging) return;
+    brandCarousel.scrollLeft = brandCarouselStartScrollLeft - (e.pageX - brandCarouselStartX);
+}
 
-companyCarousel.addEventListener("mousedown", dragStart);
-companyCarousel.addEventListener("mousemove", dragging);
-document.addEventListener("mouseup", dragStop);
-companyCarousel.addEventListener("scroll", infiniteScroll);
-companyCarouselWrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
-companyCarouselWrapper.addEventListener("mouseleave", autoPlay);
+const brandCarouselDragStop = () => {
+    brandCarouselIsDragging = false;
+    brandCarousel.classList.remove("carousel-dragging");
+}
+
+const brandCarouselInfiniteScroll = () => {
+    if(brandCarousel.scrollLeft === 0) {
+        brandCarousel.classList.add("carousel-no-transition");
+        brandCarousel.scrollLeft = brandCarousel.scrollWidth - (2 * brandCarousel.offsetWidth);
+        brandCarousel.classList.remove("carousel-no-transition");
+    }
+    else if(Math.ceil(brandCarousel.scrollLeft) === brandCarousel.scrollWidth - brandCarousel.offsetWidth) {
+        brandCarousel.classList.add("carousel-no-transition");
+        brandCarousel.scrollLeft = brandCarousel.offsetWidth;
+        brandCarousel.classList.remove("carousel-no-transition");
+    }
+    clearTimeout(brandCarouselTimeoutId);
+    if(!brandCarouselWrapper.matches(":hover")) brandCarouselAutoPlay();
+}
+
+const brandCarouselAutoPlay = () => {
+    if(!brandCarouselIsAutoPlay) return;
+    brandCarouselTimeoutId = setTimeout(() => brandCarousel.scrollLeft += brandCarouselFirstCardWidth, 1500);
+}
+brandCarouselAutoPlay();
+brandCarousel.addEventListener("mousedown", brandCarouselDragStart);
+brandCarousel.addEventListener("mousemove", brandCarouselDragging);
+document.addEventListener("mouseup", brandCarouselDragStop);
+brandCarousel.addEventListener("scroll", brandCarouselInfiniteScroll);
+brandCarouselWrapper.addEventListener("mouseenter", () => clearTimeout(brandCarouselTimeoutId));
+brandCarouselWrapper.addEventListener("mouseleave", brandCarouselAutoPlay);
 
 // ********************** Scroll to Top *********************************
 const scrollTopBtn = document.querySelector(".scroll-to-top")
@@ -176,7 +208,6 @@ window.addEventListener('scroll', () => {
         scrollTopBtn.style.display = "block"
     else
         scrollTopBtn.style.display = "none"
-
 });
 
 scrollTopBtn.addEventListener('click', () => {

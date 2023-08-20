@@ -822,11 +822,7 @@ body {
 /* ***************** testimonial Section ***************** */
 /* *************************************************** */
 
-.carousel-wrapper {
-  position: relative;
-}
-
-.carousel-wrapper .carousel {
+.testimonial-carousel-wrapper .testimonial-carousel {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
@@ -838,31 +834,31 @@ body {
   scrollbar-width: none;
 }
 
-.carousel::-webkit-scrollbar {
+.testimonial-carousel::-webkit-scrollbar {
   display: none;
 }
 
-.carousel.carousel-no-transition {
+.testimonial-carousel.carousel-no-transition {
   scroll-behavior: auto;
 }
 
-.carousel.carousel-dragging {
+.testimonial-carousel.carousel-dragging {
   scroll-snap-type: none;
   scroll-behavior: auto;
 }
 
-.carousel.carousel-dragging .carousel-card {
+.testimonial-carousel.carousel-dragging .testimonial-carousel-card {
   cursor: grab;
   user-select: none;
 }
 
-.carousel :where(.carousel-card, .carousel-card-img) {
+.testimonial-carousel :where(.testimonial-carousel-card, .carousel-card-img) {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.carousel .carousel-card {
+.testimonial-carousel .testimonial-carousel-card {
   flex-direction: column;
   height: auto;
   padding-bottom: 15px;
@@ -871,18 +867,18 @@ body {
   scroll-snap-align: start;
 }
 
-.carousel-card .carousel-card-img img {
+.testimonial-carousel-card .testimonial-carousel-card-img img {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.carousel-card p {
+.testimonial-carousel-card p {
   max-width: 700px;
 }
 
-.carousel-card i {
+.testimonial-carousel-card i {
   opacity: 0.3;
 }
 
@@ -900,6 +896,7 @@ body {
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   overflow: hidden;
+  margin-inline: var(--size-900);
 }
 
 .about-section-video::after {
@@ -938,21 +935,19 @@ body {
   flex-basis: 45%;
 }
 
-@media (max-width: 62em) {
+@media (max-width: 62em) {    
   .about-section-container {
     flex-direction: column;
   }
 
   .about-section-video {
     flex-basis: 100%;
+    min-height: 350px;
+    width: auto;
+    margin-inline: 0px;
   }
 }
 
-@media (max-width: 62em) {
-  .about-section-video {
-    min-height: 300px;
-  }
-}
 
 /* *************************************************** */
 /* ***************** Sale/ Discount Section ***************** */
@@ -1003,29 +998,69 @@ body {
 /* ***************** company carousel ***************** */
 /* *************************************************** */
 
-
-.carousel-wrapper .company-carousel {
-    grid-auto-columns: calc((100% / 4) - 12px);
+.brand-carousel-wrapper .brand-carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 4) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
-.carousel-card .company-carousel-card-img {
-  width: 200px;
-  height: auto;
-  object-fit: cover;
+.brand-carousel::-webkit-scrollbar {
+  display: none;
 }
 
-.carousel-card .company-carousel-card-img img {
-  width: 100%;
-  height: 100%;
+.brand-carousel.carousel-no-transition {
+  scroll-behavior: auto;
 }
 
+.brand-carousel.carousel-dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.brand-carousel.carousel-dragging .brand-carousel-card {
+  cursor: grab;
+  user-select: none;
+}
 
-.carousel :where(.carousel-card, .company-carousel-card-img) {
+.brand-carousel :where(.brand-carousel-card, .carousel-card-img) {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.brand-carousel .brand-carousel-card {
+  flex-direction: column;
+  height: auto;
+  padding-bottom: 15px;
+  border-radius: 8px;
+  list-style: none;
+  background: transparent;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.brand-carousel-card .brand-carousel-card-img img {
+  width: 180px;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 62em) {
+  .brand-carousel-wrapper .brand-carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media (max-width: 48em) {
+  .brand-carousel-wrapper .brand-carousel {
+    grid-auto-columns: 100%;
+  }
+}
 
 
 /* *************************************************** */
