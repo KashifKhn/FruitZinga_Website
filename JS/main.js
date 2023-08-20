@@ -12,35 +12,39 @@ window.addEventListener('scroll', () => {
 const hamburgerBtn = document.querySelector(".hamburger-btn");
 const hamburgerIcon = hamburgerBtn.querySelector(".hamburger-icon");
 const navLinks = document.querySelector(".nav-links");
+const subNavPlusBtns = document.querySelectorAll(".plus-btn");
+const subNavLinks = document.querySelectorAll(".sub-nav-links");
 hamburgerBtn.addEventListener("click", () => {
     hamburgerIcon.classList.toggle("rotate");
     navLinks.classList.toggle("mobile-active");
+    if (!navLinks.classList.contains("mobile-active")) {
+        subNavLinks.forEach((subNav) => {
+            subNav.classList.remove("active-sub-nav-link");
+            const subNavPlus = subNav.previousElementSibling.querySelector(".fa-solid");
+            subNavPlus.className = "fa-solid fa-plus";
+        });
+    }
 });
-
-
-const plusBtn = document.querySelectorAll(".plus-btn");
-plusBtn.forEach((btn) => {
-    const plus = btn.querySelector(".fa-plus");
+subNavPlusBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-        const allSubNavs = document.querySelectorAll(".sub-nav-links");
-        allSubNavs.forEach((subNav) => {
-            if (subNav !== btn.nextElementSibling) {
-                subNav.classList.remove("active-sub-nav-link");
+        const subNav = btn.nextElementSibling;
+        const subNavPlus = btn.querySelector(".fa-solid");
+        subNavPlusBtns.forEach((otherBtn) => {
+            if (otherBtn !== btn) {
+                const otherSubNav = otherBtn.nextElementSibling;
+                const otherSubNavPlus = otherBtn.querySelector(".fa-solid");
+                otherSubNav.classList.remove("active-sub-nav-link");
+                otherSubNavPlus.className = "fa-solid fa-plus";
             }
         });
-        const subNav = btn.nextElementSibling;
         subNav.classList.toggle("active-sub-nav-link");
         if (subNav.classList.contains("active-sub-nav-link")) {
-            plus.className = "fa-solid fa-minus";
-            navLinks.style.minHeight = "82%";
-        }
-        else {
-            plus.className = "fa-solid fa-plus";
-            navLinks.style.minHeight = "0%";
+            subNavPlus.className = "fa-solid fa-minus";
+        } else {
+            subNavPlus.className = "fa-solid fa-plus";
         }
     });
 });
-
 
 
 // ********************** active Links ********************************* 
@@ -98,7 +102,7 @@ const testimonialCarouselDragStart = (e) => {
     testimonialCarouselStartScrollLeft = testimonialCarousel.scrollLeft;
 }
 const testimonialCarouselDragging = (e) => {
-    if(!isDraggingTestimonialCarousel) return;  
+    if (!isDraggingTestimonialCarousel) return;
     testimonialCarousel.scrollLeft = testimonialCarouselStartScrollLeft - (e.pageX - testimonialCarouselStartX);
 }
 const testimonialCarouselDragStop = () => {
@@ -106,22 +110,22 @@ const testimonialCarouselDragStop = () => {
     testimonialCarousel.classList.remove("carousel-dragging");
 }
 const testimonialCarouselInfiniteScroll = () => {
-    if(testimonialCarousel.scrollLeft === 0) {
+    if (testimonialCarousel.scrollLeft === 0) {
         testimonialCarousel.classList.add("carousel-no-transition");
         testimonialCarousel.scrollLeft = testimonialCarousel.scrollWidth - (2 * testimonialCarousel.offsetWidth);
         testimonialCarousel.classList.remove("carousel-no-transition");
     }
-    else if(Math.ceil(testimonialCarousel.scrollLeft) === testimonialCarousel.scrollWidth - testimonialCarousel.offsetWidth) {
+    else if (Math.ceil(testimonialCarousel.scrollLeft) === testimonialCarousel.scrollWidth - testimonialCarousel.offsetWidth) {
         testimonialCarousel.classList.add("carousel-no-transition");
         testimonialCarousel.scrollLeft = testimonialCarousel.offsetWidth;
         testimonialCarousel.classList.remove("carousel-no-transition");
     }
     clearTimeout(testimonialCarouselTimeoutId);
-    if(!testimonialCarouselWrapper.matches(":hover")) testimonialCarouselAutoPlay();
+    if (!testimonialCarouselWrapper.matches(":hover")) testimonialCarouselAutoPlay();
 }
 const testimonialCarouselAutoPlay = () => {
-    if(!isAutoPlayTestimonialCarousel) return;
-    testimonialCarouselTimeoutId = setTimeout(() => testimonialCarousel.scrollLeft += testimonialCarouselFirstCardWidth, 3500);
+    if (!isAutoPlayTestimonialCarousel) return;
+    testimonialCarouselTimeoutId = setTimeout(() => testimonialCarousel.scrollLeft += testimonialCarouselFirstCardWidth, 2500);
 }
 testimonialCarouselAutoPlay();
 testimonialCarousel.addEventListener("mousedown", testimonialCarouselDragStart);
@@ -142,6 +146,7 @@ let brandCarouselIsAutoPlay = true;
 let brandCarouselStartX;
 let brandCarouselStartScrollLeft;
 let brandCarouselTimeoutId;
+
 let brandCarouselCardPerView = Math.round(brandCarousel.offsetWidth / brandCarouselFirstCardWidth);
 brandCarouselChildrens.slice(-brandCarouselCardPerView).reverse().forEach(card => {
     brandCarousel.insertAdjacentHTML("afterbegin", card.outerHTML);
@@ -155,7 +160,6 @@ brandCarousel.classList.add("carousel-no-transition");
 brandCarousel.scrollLeft = brandCarousel.offsetWidth;
 brandCarousel.classList.remove("carousel-no-transition");
 
-
 const brandCarouselDragStart = (e) => {
     brandCarouselIsDragging = true;
     brandCarousel.classList.add("carousel-dragging");
@@ -164,7 +168,7 @@ const brandCarouselDragStart = (e) => {
 }
 
 const brandCarouselDragging = (e) => {
-    if(!brandCarouselIsDragging) return;
+    if (!brandCarouselIsDragging) return;
     brandCarousel.scrollLeft = brandCarouselStartScrollLeft - (e.pageX - brandCarouselStartX);
 }
 
@@ -174,22 +178,22 @@ const brandCarouselDragStop = () => {
 }
 
 const brandCarouselInfiniteScroll = () => {
-    if(brandCarousel.scrollLeft === 0) {
+    if (brandCarousel.scrollLeft === 0) {
         brandCarousel.classList.add("carousel-no-transition");
         brandCarousel.scrollLeft = brandCarousel.scrollWidth - (2 * brandCarousel.offsetWidth);
         brandCarousel.classList.remove("carousel-no-transition");
     }
-    else if(Math.ceil(brandCarousel.scrollLeft) === brandCarousel.scrollWidth - brandCarousel.offsetWidth) {
+    else if (Math.ceil(brandCarousel.scrollLeft) === brandCarousel.scrollWidth - brandCarousel.offsetWidth) {
         brandCarousel.classList.add("carousel-no-transition");
         brandCarousel.scrollLeft = brandCarousel.offsetWidth;
         brandCarousel.classList.remove("carousel-no-transition");
     }
     clearTimeout(brandCarouselTimeoutId);
-    if(!brandCarouselWrapper.matches(":hover")) brandCarouselAutoPlay();
+    if (!brandCarouselWrapper.matches(":hover")) brandCarouselAutoPlay();
 }
 
 const brandCarouselAutoPlay = () => {
-    if(!brandCarouselIsAutoPlay) return;
+    if (!brandCarouselIsAutoPlay) return;
     brandCarouselTimeoutId = setTimeout(() => brandCarousel.scrollLeft += brandCarouselFirstCardWidth, 1500);
 }
 brandCarouselAutoPlay();
