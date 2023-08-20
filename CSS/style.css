@@ -4,11 +4,11 @@
 :root {
 
   /* color */
-  --clr-white: 0, 0%, 100%;
   --clr-primary: 27, 89%, 54%;
   --clr-secondary: 199, 74%, 8%;
-  --clr-secondary-light: 200, 74%, 10%;
+  --clr-white: 0, 0%, 100%;
   --clr-dark: 0, 0%, 0%;
+  --clr-secondary-light: 200, 74%, 10%;
   --clr-light-dark: 0, 0%, 33%;
   --clr-light: 0, 0%, 96%;
   --clr-shadow: 0, 0%, 89%;
@@ -30,6 +30,30 @@
   --fs-14: 0.875rem;
   --fs-13: 0.813rem;
 
+  @media (max-width: 62em) {
+    --fs-64: 2.813rem;
+    /* 45px */
+    --fs-50: 2.625rem;
+    /* 42px */
+    --fs-42: 2.313rem;
+    /* 37px */
+    --fs-40: 2.188rem;
+    /* 35px */
+  }
+
+  @media (max-width: 48em) {
+    --fs-64: 2.5rem;
+    /* 40px */
+    --fs-50: 2.188rem;
+    /* 35px */
+    --fs-42: 2rem;
+    /* 32px */
+    --fs-40: 1.875rem;
+    /* 30px */
+  }
+
+
+  /* font-weight */
   --fw-100: 100;
   --fw-200: 200;
   --fw-300: 300;
@@ -40,6 +64,7 @@
   --fw-800: 800;
   --fw-900: 900;
 
+  /* size */
   --size-100: 1rem;
   /* 16px */
   --size-200: 1.25rem;
@@ -58,7 +83,6 @@
   /* 44px */
   --size-900: 3rem;
   /* 48px */
-
 }
 
 
@@ -473,10 +497,6 @@ body {
     justify-content: space-around;
   }
 
-  .primary-header-content h1 {
-    font-size: calc(var(--fs-42) + .2rem)
-  }
-
   .primary-logo {
     width: 150px;
     height: auto;
@@ -498,10 +518,6 @@ body {
     background: url('../Image/hero-bg.jpg');
     background-size: auto;
     background-repeat: no-repeat;
-  }
-
-  .primary-header-content h1 {
-    font-size: var(--fs-40);
   }
 
   .desktop-hide {
@@ -817,10 +833,9 @@ body {
   position: relative;
 }
 
-.carousel-wrapper .carousel{
+.carousel-wrapper .carousel {
   display: grid;
   grid-auto-flow: column;
-  /* grid-auto-columns: calc((100% / 3) - 12px); */
   grid-auto-columns: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -842,6 +857,7 @@ body {
   scroll-snap-type: none;
   scroll-behavior: auto;
 }
+
 .carousel.carousel-dragging .carousel-card {
   cursor: grab;
   user-select: none;
@@ -878,7 +894,7 @@ body {
 }
 
 /* *************************************************** */
-/* ***************** testimonial Section ***************** */
+/* ***************** About Section ***************** */
 /* *************************************************** */
 
 .about-section-video {
@@ -936,7 +952,6 @@ body {
 
   .about-section-video {
     flex-basis: 100%;
-    /* min-width: 100%; */
   }
 }
 
@@ -945,6 +960,37 @@ body {
     min-height: 300px;
   }
 }
+
+/* *************************************************** */
+/* ***************** Sale/ Discount Section ***************** */
+/* *************************************************** */
+
+.sale-section {
+  position: relative;
+  background-color: hsl(var(--clr-light));
+  background-image: url(../Image/1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+@media (max-width: 62em) {
+  .sale-section {
+    background-position: center;
+  }
+  .sale-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--clr-light));
+    opacity: 0.4;
+    z-index: -1;
+  }
+}
+
 
 
 
@@ -972,11 +1018,6 @@ body {
   color: hsl(var(--clr-primary));
 }
 
-
-
-
-
-
 /* *************************************************** */
 /* ***************** UTILITY CLASSES ***************** */
 /* *************************************************** */
@@ -995,6 +1036,16 @@ body {
 .ai-jc-center {
   align-items: center;
   justify-content: center;
+}
+
+.ai-jc-start {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.ai-jc-end {
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .container {
