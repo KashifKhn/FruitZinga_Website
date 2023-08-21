@@ -1057,7 +1057,7 @@ body {
 .footer-input-box input {
   border: none;
   outline: none;
-  width: 78%;
+  width: 79%;
   padding: 15px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -1068,7 +1068,7 @@ body {
 }
 
 .footer-input-box button {
-  width: 20%;
+  width: 19%;
   border: none;
   padding: 14px 0;
   border-top-right-radius: 3px;
@@ -1104,6 +1104,10 @@ body {
 @media (max-width: 48em) {
   .footer-item-container {
     flex-direction: column;
+  }
+  .footer-item {
+    flex-basis: 80%;
+    width: 80%;
   }
 }
 
