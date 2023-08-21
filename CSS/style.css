@@ -998,6 +998,10 @@ body {
 /* ***************** company carousel ***************** */
 /* *************************************************** */
 
+.brand-logo-section {
+  margin-top: var(--size-900);
+}
+
 .brand-carousel-wrapper .brand-carousel{
   display: grid;
   grid-auto-flow: column;
@@ -1063,6 +1067,92 @@ body {
 }
 
 
+/* ********************************************************* */
+/* *************************************************** */
+/* ***************** footer ***************** */
+/* *************************************************** */
+/* ********************************************************* */
+
+.footer-item {
+  flex-basis: 25%;
+  width: 25%;
+}
+
+.footer-item p, 
+.footer-item a {
+  opacity: 0.7;
+  transition: all .3s ease-in-out;
+}
+
+.footer-item a:hover {
+  opacity: 1;
+}
+
+.footer-input-box {
+  --flex-gap: 5px;
+}
+
+.footer-input-box input {
+  border: none;
+  outline: none;
+  width: 78%;
+  padding: 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.footer-input-box input:focus {
+  border: 1px solid hsl(var(--clr-primary));
+}
+
+.footer-input-box button {
+  width: 20%;
+  border: none;
+  padding: 14px 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+
+.footer-input-box button:focus,
+.footer-input-box button:hover {
+  background: hsl(var(--clr-primary));
+  color: hsl(var(--clr-secondary));
+}
+
+.sub-footer-section {
+  border-top: 1px solid hsl(var(--clr-light) , 0.1);
+}
+
+@media (max-width: 62em) {
+  .sub-footer-container {
+    flex-direction: column;
+  }
+  .footer-item-container {
+    flex-wrap: wrap;
+  }
+  .footer-item {
+    flex-basis: 40%;
+    min-width: 40%;
+  }
+}
+
+@media (max-width: 48em) {
+  .footer-item-container {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+
 /* *************************************************** */
 /* ***************** Back to Top ***************** */
 /* *************************************************** */
@@ -1114,6 +1204,11 @@ body {
 .ai-jc-end {
   align-items: flex-end;
   justify-content: flex-end;
+}
+
+.ai-jc-sb {
+  align-items: center;
+  justify-content: space-between;
 }
 
 .container {
@@ -1359,6 +1454,10 @@ body {
 
 .bg-clr-secondary {
   background: hsl(var(--clr-secondary));
+}
+
+.bg-clr-secondary-light {
+  background: hsl(var(--clr-secondary-light));
 }
 
 .bg-clr-light {
