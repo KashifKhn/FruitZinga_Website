@@ -228,15 +228,12 @@ body {
 
 .search-section {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  /* inset: 0; */
   background: hsl(var(--clr-secondary));
   padding: var(--size-500) 0;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  overflow-y: hidden;
   z-index: 999;
   transition: all 1s ease-in-out;
   display: none;
@@ -250,8 +247,6 @@ body {
   margin-top: 10rem;
   --flex-dir-gap: 2rem;
   height: 100%;
-  align-items: center;
-  justify-content: center;
   position: relative;
 }
 
@@ -262,6 +257,7 @@ body {
   right: 10%;
   border: none;
   outline: none;
+  padding: 10px;
   background: hsl(var(--clr-white));
   color: hsl(var(--clr-secondary));
   transition: all .4s ease-in-out;
@@ -307,7 +303,6 @@ body {
   z-index: 99;
   margin-top: var(--size-500);
   padding-bottom: 1rem;
-  justify-content: space-between;
 }
 
 .primary-navigation {
@@ -392,17 +387,13 @@ body {
   position: fixed;
   top: 4%;
   right: 5%;
-  align-items: center;
-  justify-content: center;
   width: 35px;
   height: 35px;
   background-color: hsl(var(--clr-primary));
   border: none;
-  font-size: 1.5rem;
   cursor: pointer;
   padding-inline: 5px;
 }
-
 
 
 .hamburger-icon,
@@ -412,7 +403,6 @@ body {
   background-color: hsl(var(--clr-secondary));
   width: 25px;
   height: 2.5px;
-
   position: absolute;
   transition: all .7s;
 }
@@ -447,8 +437,6 @@ body {
   height: 100vh;
   position: relative;
   z-index: 99;
-  justify-content: center;
-  align-items: center;
 }
 
 .primary-header-bg {
@@ -475,8 +463,6 @@ body {
 }
 
 .primary-header-content {
-  justify-content: center;
-  align-items: center;
   height: 100%;
   --flex-dir-gap: 2rem;
   padding-inline: var(--size-500);
@@ -687,8 +673,6 @@ body {
 /* ********************************************************* */
 
 
-
-
 /* *************************************************** */
 /* ***************** Order Experience Section ***************** */
 /* *************************************************** */
@@ -765,8 +749,6 @@ body {
   }
 }
 
-
-
 /* *************************************************** */
 /* ***************** Deal Section ***************** */
 /* *************************************************** */
@@ -829,7 +811,6 @@ body {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 16px;
-  border-radius: 8px;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
@@ -852,16 +833,8 @@ body {
   user-select: none;
 }
 
-.testimonial-carousel :where(.testimonial-carousel-card, .carousel-card-img) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .testimonial-carousel .testimonial-carousel-card {
-  flex-direction: column;
   height: auto;
-  padding-bottom: 15px;
   list-style: none;
   cursor: pointer;
   scroll-snap-align: start;
@@ -911,8 +884,6 @@ body {
 }
 
 .about-section-video a {
-  align-items: center;
-  justify-content: center;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1031,17 +1002,8 @@ body {
   user-select: none;
 }
 
-.brand-carousel :where(.brand-carousel-card, .carousel-card-img) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .brand-carousel .brand-carousel-card {
-  flex-direction: column;
   height: auto;
-  padding-bottom: 15px;
-  border-radius: 8px;
   list-style: none;
   background: transparent;
   cursor: pointer;
@@ -1145,14 +1107,6 @@ body {
   }
 }
 
-
-
-
-
-
-
-
-
 /* *************************************************** */
 /* ***************** Back to Top ***************** */
 /* *************************************************** */
@@ -1166,7 +1120,7 @@ body {
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 99999;
+  z-index: 99;
   transition: all .4s ease-in-out;
 }
 

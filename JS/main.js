@@ -38,11 +38,10 @@ subNavPlusBtns.forEach((btn) => {
             }
         });
         subNav.classList.toggle("active-sub-nav-link");
-        if (subNav.classList.contains("active-sub-nav-link")) {
+        if (subNav.classList.contains("active-sub-nav-link")) 
             subNavPlus.className = "fa-solid fa-minus";
-        } else {
+         else 
             subNavPlus.className = "fa-solid fa-plus";
-        }
     });
 });
 
@@ -72,7 +71,6 @@ searchOpenBtn.addEventListener('click', () => {
     if (!searchMenu.classList.contains("search-section-active"))
         searchMenu.classList.add("search-section-active");
 });
-
 
 // ********************** carousel testimonial *********************************
 const testimonialCarouselWrapper = document.querySelector(".testimonial-carousel-wrapper");
