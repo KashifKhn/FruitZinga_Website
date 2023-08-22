@@ -38,31 +38,31 @@ FruitZinga is a website designed to showcase and sell a wide range of fresh and 
     The primary header showcases the FruitZinga logo and navigation menu, enabling users to explore various sections of the website.
 
 - #### Product Display: 
-        A dedicated section displays featured products with images, names, prices, and an option to add them to the cart.
+    A dedicated section displays featured products with images, names, prices, and an option to add them to the cart.
 
 - #### Add to Cart
-        Select your desired fruits and use the "Add to Cart" buttons to create a shopping cart for easy checkout.
+    Select your desired fruits and use the "Add to Cart" buttons to create a shopping cart for easy checkout.
  
 - #### Order Experience: 
-        Information about free shipping, 24/7 support, and refund policies is highlighted to enhance the user experience.
+    Information about free shipping, 24/7 support, and refund policies is highlighted to enhance the user experience.
 
 - #### Deal of the Month: 
-        A special deal of the month is highlighted with a countdown timer, enticing users to make a purchase.
+    A special deal of the month is highlighted with a countdown timer, enticing users to make a purchase.
 
 - #### Testimonials: 
-        Customer testimonials provide social proof and build trust among users.
+    Customer testimonials provide social proof and build trust among users.
 
 - #### About Section: 
-        The section shares the history and mission of FruitZinga, offering users insights into the brand.
+    The section shares the history and mission of FruitZinga, offering users insights into the brand.
 
 - #### Discount Sale: 
-        Promotional discounts are showcased, encouraging users to take advantage of ongoing offers.
+    Promotional discounts are showcased, encouraging users to take advantage of ongoing offers.
 
 - #### News Section: 
-        Latest news related to the fruit industry is displayed, keeping users informed and engaged.
+    Latest news related to the fruit industry is displayed, keeping users informed and engaged.
 
 - #### Brand Logos: 
-        A carousel showcases logos of partner brands, reinforcing FruitZinga's credibility.
+    A carousel showcases logos of partner brands, reinforcing FruitZinga's credibility.
 
 
 ## Installation
