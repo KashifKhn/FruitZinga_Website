@@ -433,13 +433,13 @@ body {
 }
 
 /* Hero bg */
-.primary-header {
+.primary-header-home {
   height: 100vh;
   position: relative;
   z-index: 99;
 }
 
-.primary-header-bg {
+.primary-header-home-bg {
   background: url('../Image/hero-bg.jpg');
   background-size: cover;
   background-position: center;
@@ -450,7 +450,7 @@ body {
   overflow: hidden;
 }
 
-.primary-header::before {
+.primary-header-home::before {
   content: "";
   position: absolute;
   left: 0;
@@ -462,8 +462,19 @@ body {
   opacity: 0.6;
 }
 
+.primary-header {
+  height: 90vh;
+  position: relative;
+  z-index: 99;
+  background: hsl(var(--clr-secondary-light), 0.8);
+}
+
 .primary-header-content {
-  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   --flex-dir-gap: 2rem;
   padding-inline: var(--size-500);
 }
@@ -1133,6 +1144,23 @@ body {
   background-color: hsl(var(--clr-secondary));
   color: hsl(var(--clr-primary));
 }
+
+
+/* ********************************************************* */
+/* *************************************************** */
+/* ***************** Cart ***************** */
+/* *************************************************** */
+/* ********************************************************* */
+
+
+
+
+
+
+
+
+
+
 
 /* *************************************************** */
 /* ***************** UTILITY CLASSES ***************** */
