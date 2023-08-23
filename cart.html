@@ -113,19 +113,118 @@
     </header>
     <!--******** Main ******** -->
     <main>
-        <div class="cart-container flex">
-            <section class="cart-table-section">
-                <div class="container cart-table-section-container">
-                    <div class="cart-table-header bg-clr-light">
-                        
+        <div class="container grid-container grid max-mg-block max-pd-block">
+            <section class="cart-section ">
+                <div class="cart-section-container container">
+                    <div class="cart-header grid bg-clr-light">
+                        <div class="text-center xs-pd-block cart-header-item">
+                            <p class="fs-14 fw-600 text-clr-primary"><i class="fa-solid fa-trash-can"></i></p>
+                        </div>
+                        <div class="text-center xs-pd-block cart-header-item">
+                            <p class="fs-14 fw-600 text-clr-primary">Product Name</p>
+                        </div>
+                        <div class="text-center xs-pd-block cart-header-item">
+                            <p class="fs-14 fw-600 text-clr-primary">Name</p>
+                        </div>
+                        <div class="text-center xs-pd-block cart-header-item">
+                            <p class="fs-14 fw-600 text-clr-primary">Price</p>
+                        </div>
+                        <div class="text-center xs-pd-block cart-header-item">
+                            <p class="fs-14 fw-600 text-clr-primary">Quantity</p>
+                        </div>
+                        <div class="text-center xs-pd-block cart-header-item">
+                            <p class="fs-14 fw-600 text-clr-primary">Total</p>
+                        </div>
+                    </div>
+                    <div class="cart-item-container flex-dir-col">
+                        <div class="cart-item grid p-i-center text-center">
+                            <div class="item-delete | flex ai-jc-center text-center "><i
+                                    class="fa-solid fa-trash-can"></i></div>
+                            <div class="item-img | flex ai-jc-center text-center "><img
+                                    src="Image/products/product-img-1.jpg" alt=""></div>
+                            <div class="item-name | flex ai-jc-center text-center ">StrawBerry</div>
+                            <div class="item-price | flex ai-jc-center text-center ">100$</div>
+                            <div class="item-quantity | flex ai-jc-center text-center "><input class="text-center"
+                                    type="number" value="1"></div>
+                            <div class="item-total | flex ai-jc-center text-center ">1000$</div>
+                        </div>
+                        <div class="cart-item grid p-i-center text-center">
+                            <div class="item-delete | flex ai-jc-center text-center "><i
+                                    class="fa-solid fa-trash-can"></i></div>
+                            <div class="item-img | flex ai-jc-center text-center "><img
+                                    src="Image/products/product-img-1.jpg" alt=""></div>
+                            <div class="item-name | flex ai-jc-center text-center ">StrawBerry</div>
+                            <div class="item-price | flex ai-jc-center text-center ">100$</div>
+                            <div class="item-quantity | flex ai-jc-center text-center "><input class="text-center"
+                                    type="number" value="1"></div>
+                            <div class="item-total | flex ai-jc-center text-center ">1000$</div>
+                        </div>
+                        <div class="cart-item grid p-i-center text-center">
+                            <div class="item-delete | flex ai-jc-center text-center "><i
+                                    class="fa-solid fa-trash-can"></i></div>
+                            <div class="item-img | flex ai-jc-center text-center "><img
+                                    src="Image/products/product-img-1.jpg" alt=""></div>
+                            <div class="item-name | flex ai-jc-center text-center ">StrawBerry</div>
+                            <div class="item-price | flex ai-jc-center text-center ">100$</div>
+                            <div class="item-quantity | flex ai-jc-center text-center "><input class="text-center"
+                                    type="number" value="1"></div>
+                            <div class="item-total | flex ai-jc-center text-center ">1000$</div>
+                        </div>
+                        <div class="cart-item grid p-i-center text-center">
+                            <div class="item-delete | flex ai-jc-center text-center "><i
+                                    class="fa-solid fa-trash-can"></i></div>
+                            <div class="item-img | flex ai-jc-center text-center "><img
+                                    src="Image/products/product-img-1.jpg" alt=""></div>
+                            <div class="item-name | flex ai-jc-center text-center ">StrawBerry</div>
+                            <div class="item-price | flex ai-jc-center text-center ">100$</div>
+                            <div class="item-quantity | flex ai-jc-center text-center "><input class="text-center"
+                                    type="number" value="1"></div>
+                            <div class="item-total | flex ai-jc-center text-center ">1000$</div>
+                        </div>
+                        <div class="cart-item grid p-i-center text-center">
+                            <div class="item-delete | flex ai-jc-center text-center "><i
+                                    class="fa-solid fa-trash-can"></i></div>
+                            <div class="item-img | flex ai-jc-center text-center "><img
+                                    src="Image/products/product-img-1.jpg" alt=""></div>
+                            <div class="item-name | flex ai-jc-center text-center ">StrawBerry</div>
+                            <div class="item-price | flex ai-jc-center text-center ">100$</div>
+                            <div class="item-quantity | flex ai-jc-center text-center "><input class="text-center"
+                                    type="number" value="1"></div>
+                            <div class="item-total | flex ai-jc-center text-center ">1000$</div>
+                        </div>
                     </div>
                 </div>
             </section>
             <section class="total-section">
-
+                <div class="total-section-container container flex-dir-col">
+                    <div class="total-header grid bg-clr-light">
+                        <div class="text-center xs-pd-block cart-header-item">
+                            <p class="fs-14 fw-600 text-clr-primary">Quantity</p>
+                        </div>
+                        <div class="text-center xs-pd-block cart-header-item">
+                            <p class="fs-14 fw-600 text-clr-primary">Total</p>
+                        </div>
+                    </div>
+                    <div class="total-container grid">
+                        <div class="total-item-right flex">
+                            <p>SubTotal: </p>
+                        </div>
+                        <div class="total-item-left">
+                            <p>$ 50000</p>
+                        </div>
+                    </div>
+                    <div class="md-mg-block cart-total-btns">
+                        <button class="primary-btn">Update Cart</button>
+                        <a href="#" class="primary-btn">Check Out</a>
+                    </div>
+                    <div class="cart-apply-coupon md-mg-block flex-dir-col ai-jc-start">
+                        <h3 class="text-clr-secondary fs-20 fw-500 ff-poppins">Apply Coupon</h3>
+                        <input class="xs-pd-block xs-pd-inline" type="text" placeholder="Coupon">
+                        <button class="primary-btn">Apply</button>
+                    </div>
+                </div>
             </section>
         </div>
-
         <!--******** Brands carousel section ******** -->
         <section class="brand-logo-section bg-clr-light">
             <div class="container brand-carousel-wrapper max-pd-block ">
