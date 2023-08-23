@@ -1164,7 +1164,7 @@ body {
 
 
 .cart-header,
-.cart-item {
+.cart-item-row {
   grid-template-columns: .25fr 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -1181,28 +1181,28 @@ body {
 .total-header > *,
 .cart-header > *,
 .total-item,
-.cart-item,
+.cart-item-row,
 .total-item-container  {
   border: 1px solid hsl(var(--clr-secondary) , 0.1)
 }
 
 
-.cart-item :not(:first-child) {
+.cart-item-row :not(:first-child) {
   border-top: none;
 }
 
-.cart-item > *,
+.cart-item-row > *,
 .total-item > * {
   height: 100%;
 }
 
-.cart-item > *:not(:first-child),
+.cart-item-row > *:not(:first-child),
 .total-item > *:not(:first-child) {
   border-left: 1px solid hsl(var(--clr-secondary), 0.1);
 }
 
-.item-quantity input {
-  align-self: center;
+.item-quantity input,
+.cart-apply-coupon input {
   width: 80%;
   height: 30%;
   outline: none;
@@ -1213,14 +1213,6 @@ body {
 .total-header, 
 .total-item  {
   grid-template-columns: 2fr 1fr;
-}
-
-.cart-apply-coupon input {
-  width: 80%;
-  height: 30%;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid hsl(var(--clr-secondary) , 0.2);
 }
 
 .cart-apply-coupon button {
@@ -1621,8 +1613,7 @@ body {
   transition: all 0.4s ease-in-out;
 }
 
-.primary-btn:hover,
-.primary-btn:focus {
+.primary-btn:hover {
   background-color: hsl(var(--clr-secondary));
   color: hsl(var(--clr-primary));
 }
