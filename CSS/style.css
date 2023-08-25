@@ -457,9 +457,9 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: hsl(var(--clr-secondary-light));
+  background-color: hsl(var(--clr-secondary));
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .primary-header {
@@ -1637,6 +1637,6 @@ body {
 }
 
 /* active-link  */
-a:is(:link, :active, :visited).active-Link {
+a:is( :active, :visited).active-Link {
   color: hsl(var(--clr-primary));
 }

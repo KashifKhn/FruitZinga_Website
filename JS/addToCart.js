@@ -29,6 +29,8 @@ function addItemToCart(itemImage, itemName, itemPrice) {
             return;
         }
     }
+    // create a div in cart.html page
+
     let cardRow = document.createElement("div");
     cardRow.classList.add("cart-item-row");
     cardRow.classList.add("grid");
@@ -57,12 +59,17 @@ function addItemToCart(itemImage, itemName, itemPrice) {
     });
 }
 
+newDocument = window.location.href;
+console.log(newDocument);
+
+
 if (window.location.href.includes("cart")) {
     const updateCartBtn = document.querySelector("[data-update-cart]");
     updateCartBtn.addEventListener('click', () => {
         updateCartTotal();
     });
 }
+
 const removeCartItemBtn = document.querySelectorAll("[data-item-delete] i");
 removeCartItemBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {

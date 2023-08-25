@@ -1,7 +1,7 @@
 // ********************** carousel testimonial *********************************
-const testimonialCarouselWrapper = document.querySelector(".testimonial-carousel-wrapper");
-const testimonialCarousel = document.querySelector(".testimonial-carousel");
-const testimonialCarouselFirstCardWidth = testimonialCarousel.querySelectorAll(".testimonial-carousel-card").offsetWidth;
+const testimonialCarouselWrapper = document.querySelector("[data-testimonial-carousel-wrapper]");
+const testimonialCarousel = document.querySelector("[data-testimonial-carousel]");
+const testimonialCarouselFirstCardWidth = testimonialCarousel.querySelector("[data-testimonial-carousel-card]").offsetWidth;
 const testimonialCarouselChildrens = [...testimonialCarousel.children];
 
 let isDraggingTestimonialCarousel = false;
@@ -9,6 +9,7 @@ let isAutoPlayTestimonialCarousel = true;
 let testimonialCarouselStartX;
 let testimonialCarouselStartScrollLeft;
 let testimonialCarouselTimeoutId;
+
 let testimonialCarouselCardPerView = Math.round(testimonialCarousel.offsetWidth / testimonialCarouselFirstCardWidth);
 testimonialCarouselChildrens.slice(-testimonialCarouselCardPerView).reverse().forEach(card => {
     testimonialCarousel.insertAdjacentHTML("afterbegin", card.outerHTML);
@@ -45,7 +46,8 @@ const testimonialCarouselInfiniteScroll = () => {
         testimonialCarousel.classList.remove("carousel-no-transition");
     }
     clearTimeout(testimonialCarouselTimeoutId);
-    if (!testimonialCarouselWrapper.matches(":hover")) testimonialCarouselAutoPlay();
+    if (!testimonialCarouselWrapper.matches(":hover"))
+        testimonialCarouselAutoPlay();
 }
 const testimonialCarouselAutoPlay = () => {
     if (!isAutoPlayTestimonialCarousel) return;

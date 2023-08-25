@@ -1,5 +1,5 @@
 // **************** sticky Nav bar ********************
-const primaryNav = document.querySelector(".primary-navigation");
+const primaryNav = document.querySelector("[data-primary-navigation]");
 const navSticky = primaryNav.offsetTop;
 window.addEventListener('scroll', () => {
     if (window.scrollY > navSticky)
@@ -9,11 +9,11 @@ window.addEventListener('scroll', () => {
 });
 
 // ************************ hamburger menu  *********************
-const hamburgerBtn = document.querySelector(".hamburger-btn");
-const hamburgerIcon = hamburgerBtn.querySelector(".hamburger-icon");
-const navLinks = document.querySelector(".nav-links");
-const subNavPlusBtns = document.querySelectorAll(".plus-btn");
-const subNavLinks = document.querySelectorAll(".sub-nav-links");
+const hamburgerBtn = document.querySelector("[data-hamburger-btn]");
+const hamburgerIcon = hamburgerBtn.querySelector("[data-hamburger-icon]");
+const navLinks = document.querySelector("[data-nav-links]");
+const subNavPlusBtns = document.querySelectorAll("[data-plus-btn]");
+const subNavLinks = document.querySelectorAll("[data-sub-nav-links]");
 hamburgerBtn.addEventListener("click", () => {
     hamburgerIcon.classList.toggle("rotate");
     navLinks.classList.toggle("mobile-active");
@@ -58,9 +58,9 @@ navLinksActive.forEach(link => {
 });
 
 // ********************** Search Menu *********************************
-const searchCloseBtn = document.querySelector(".search-close-btn");
-const searchMenu = document.querySelector(".search-section");
-const searchOpenBtn = document.querySelector(".search-open-btn");
+const searchCloseBtn = document.querySelector("[data-search-close-btn]");
+const searchMenu = document.querySelector("[data-search-section]");
+const searchOpenBtn = document.querySelector("[data-search-open-btn]");
 searchCloseBtn.addEventListener('click', () => {
     if (searchMenu.classList.contains("search-section-active"))
         searchMenu.classList.remove("search-section-active");
@@ -72,7 +72,7 @@ searchOpenBtn.addEventListener('click', () => {
 });
 
 // ********************** Scroll to Top *********************************
-const scrollTopBtn = document.querySelector(".scroll-to-top");
+const scrollTopBtn = document.querySelector("[data-back-top]");
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300)

@@ -1,7 +1,7 @@
 // ********************** Company Logo carousel *********************************
-const brandCarouselWrapper = document.querySelector(".brand-carousel-wrapper");
-const brandCarousel = document.querySelector(".brand-carousel");
-const brandCarouselFirstCardWidth = brandCarousel.querySelector(".brand-carousel-card").offsetWidth;
+const brandCarouselWrapper = document.querySelector("[data-brand-carousel-wrapper]");
+const brandCarousel = document.querySelector("[data-brand-carousel]");
+const brandCarouselFirstCardWidth = brandCarousel.querySelector("[data-brand-carousel-card]").offsetWidth;
 const brandCarouselChildrens = [...brandCarousel.children];
 
 let brandCarouselIsDragging = false;

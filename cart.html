@@ -13,9 +13,9 @@
 
 <body>
     <!--******** search Area ******** -->
-    <section class="search-section text-center">
+    <section data-search-section class="search-section text-center">
         <div class="flex-dir-col">
-            <button class="search-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <button data-search-close-btn class="search-close-btn"><i class="fa-solid fa-xmark"></i></button>
             <div class="search-section-container flex-dir-col ai-jc-center ">
                 <h3 class="fs-24 text-clr-white ff-poppins letter-spacing-7 fw-700">SEARCH FOR:</h3>
                 <input class="fs-64 text-clr-white fw-900 text-center" type="text" placeholder="Keywords">
@@ -26,19 +26,19 @@
     </section>
     <!--******** Header ******** -->
     <header class="primary-header flex-dir-col">
-        <nav class="primary-navigation flex">
+        <nav data-primary-navigation class="primary-navigation flex">
             <div class="container flex ai-jc-sb primary-nav-container">
                 <div class="primary-logo">
                     <a href="index.html">
                         <img src="Image/logonew.png" alt="FruitZinga Logo">
                     </a>
                 </div>
-                <ul class="nav-links mobile-hide">
+                <ul data-nav-links class="nav-links mobile-hide">
                     <li class="nav-link nav-tab-link">
-                        <a class="underline-hover-link hover-link flex" href="#">Home <i
+                        <a class="underline-hover-link hover-link active-Link flex" href="#">Home <i
                                 class="fa-sharp fa-solid i-icon-change fa-angle-down"></i></a>
-                        <p class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
-                        <ul class="sub-nav-links">
+                        <p data-plus-btn class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
+                        <ul data-sub-nav-links class="sub-nav-links">
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="index.html">Static
                                     Home</a></li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Slider Home</a>
@@ -48,13 +48,12 @@
                     <li class="nav-link"><a class="underline-hover-link hover-link" href="#">About</a></li>
                     <li class="nav-link nav-tab-link"><a class="underline-hover-link hover-link">Pages <i
                                 class="fa-sharp fa-solid fa-angle-down"></i></a>
-                        <p class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
-                        <ul class="sub-nav-links">
+                        <p data-plus-btn class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
+                        <ul data-sub-nav-links class="sub-nav-links">
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">404 page</a>
                             </li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">About</a></li>
-                            <li class="sub-nav-link"><a class="underline-hover-link active-Link"
-                                    href="cart.html">Cart</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="cart.html">Cart</a></li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Check Out</a>
                             </li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Contact</a>
@@ -65,8 +64,8 @@
                     </li>
                     <li class="nav-link nav-tab-link"><a class="underline-hover-link hover-link" href="#">News <i
                                 class="fa-sharp fa-solid fa-angle-down"></i></a>
-                        <p class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
-                        <ul class="sub-nav-links ">
+                        <p data-plus-btn class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
+                        <ul data-sub-nav-links class="sub-nav-links ">
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">News</a></li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Single News</a>
                             </li>
@@ -75,15 +74,14 @@
                     <li class="nav-link"><a class="underline-hover-link hover-link" href="#">Contact</a></li>
                     <li class="nav-link nav-tab-link"><a class="underline-hover-link hover-link" href="#">Shop <i
                                 class="fa-sharp fa-solid fa-angle-down"></i></a>
-                        <p class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
-                        <ul class="sub-nav-links">
+                        <p data-plus-btn class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
+                        <ul data-sub-nav-links class="sub-nav-links">
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Shop</a></li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Check Out</a>
                             </li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Single
                                     Product</a></li>
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
-                                    href="cart.html">Cart</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="cart.html">Cart</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -91,13 +89,13 @@
                     <a class="hover-link text-clr-white" href="cart.html">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a>
-                    <p class="hover-link text-clr-white search-open-btn">
+                    <p data-search-open-btn class="hover-link text-clr-white">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </p>
                 </div>
                 <div class="desktop-hide humberger-menu">
-                    <button class="hamburger-btn PR">
-                        <div class="hamburger-icon"></div>
+                    <button data-hamburger-btn  class="hamburger-btn PR">
+                        <div data-hamburger-icon class="hamburger-icon"></div>
                     </button>
                 </div>
             </div>
@@ -238,25 +236,25 @@
         </div>
         <!--******** Brands carousel section ******** -->
         <section class="brand-logo-section bg-clr-light">
-            <div class="container brand-carousel-wrapper max-pd-block ">
-                <ul class="brand-carousel">
-                    <li class="brand-carousel-card flex ai-jc-center">
+            <div data-brand-carousel-wrapper class="container brand-carousel-wrapper max-pd-block ">
+                <ul data-brand-carousel class="brand-carousel">
+                    <li data-brand-carousel-card class="brand-carousel-card flex ai-jc-center">
                         <div class="brand-carousel-card-img"><img src="Image/company-logos/1.png"
                                 alt="carousel-card-img" draggable="false"></div>
                     </li>
-                    <li class="brand-carousel-card flex ai-jc-center">
+                    <li data-brand-carousel-card class="brand-carousel-card flex ai-jc-center">
                         <div class="brand-carousel-card-img"><img src="Image/company-logos/2.png"
                                 alt="carousel-card-img" draggable="false"></div>
                     </li>
-                    <li class="brand-carousel-card flex ai-jc-center">
+                    <li data-brand-carousel-card class="brand-carousel-card flex ai-jc-center">
                         <div class="brand-carousel-card-img"><img src="Image/company-logos/3.png"
                                 alt="carousel-card-img" draggable="false"></div>
                     </li>
-                    <li class="brand-carousel-card flex ai-jc-center">
+                    <li data-brand-carousel-card class="brand-carousel-card flex ai-jc-center">
                         <div class="brand-carousel-card-img"><img src="Image/company-logos/4.png"
                                 alt="carousel-card-img" draggable="false"></div>
                     </li>
-                    <li class="brand-carousel-card flex ai-jc-center">
+                    <li data-brand-carousel-card class="brand-carousel-card flex ai-jc-center">
                         <div class="brand-carousel-card-img"><img src="Image/company-logos/5.png"
                                 alt="carousel-card-img" draggable="false"></div>
                     </li>
@@ -342,6 +340,7 @@
     <script src="JS/main.js"></script>
     <script src="JS/brandLogoCarousel.js"></script>
     <script src="JS/addToCart.js"></script>
+    
     <script src="https://kit.fontawesome.com/766675f9af.js" crossorigin="anonymous"></script>
 </body>
 
