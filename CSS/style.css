@@ -8,7 +8,7 @@
   --clr-secondary: 199, 74%, 8%;
   --clr-white: 0, 0%, 100%;
   --clr-dark: 0, 0%, 0%;
-  --clr-secondary-light: 200, 74%, 10%;
+  --clr-secondary-light: 200, 74%, 12%;
   --clr-light-dark: 0, 0%, 33%;
   --clr-light: 0, 0%, 96%;
   --clr-shadow: 0, 0%, 89%;
@@ -1774,6 +1774,12 @@ body {
 .info-section {
   --flex-dir-gap: .25rem;
   --flex-gap: .5rem;
+}
+
+.map-section {
+  --flex-dir-gap: 0rem;
+  margin-top: var(--size-900);
+  padding-top: var(--size-900);
 }
 
 @media(max-width: 62em) {
