@@ -1649,6 +1649,90 @@ body {
 
 /* ********************************************************* */
 /* *************************************************** */
+/* ***************** News Page ***************** */
+/* *************************************************** */
+/* ********************************************************* */
+.news-tab-btns button {
+  --size-100: 10px;
+  border: 1px solid hsl(var(--clr-secondary), 0.06);
+  outline: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.news-tab-btns button:hover {
+  border: 1px solid hsl(var(--clr-primary));
+  background: hsl(var(--clr-primary));
+  color: hsl(var(--clr-secondary));
+}
+
+@media (max-width: 48em) {
+
+  .news-tab-btns button:nth-child(3),
+  .news-tab-btns button:nth-child(4) {
+    display: none;
+  }
+}
+
+
+/* ********************************************************* */
+/* *************************************************** */
+/* ***************** contact Page ***************** */
+/* *************************************************** */
+/* ********************************************************* */
+
+.contact-grid-container {
+  grid-template-columns: 3fr 1fr;
+  gap: var(--size-100);
+}
+
+.contact-section-form form div {
+  width: 90%;
+}
+
+.contact-section-form form div input,
+.contact-section-form form textarea {
+  width: 90%;
+  height: 100%;
+  outline: none;
+  border: 1px solid hsl(var(--clr-secondary), 0.2);
+  border-radius: 5px;
+  resize: none;
+}
+
+.info-section {
+  --flex-dir-gap: .25rem;
+  --flex-gap: .5rem;
+}
+
+.map-section {
+  --flex-dir-gap: 0rem;
+  margin-top: var(--size-900);
+  padding-top: var(--size-900);
+}
+
+@media(max-width: 62em) {
+  .contact-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 48em) {
+  .contact-section-form form div {
+    width: 100%;
+  }
+  
+  .contact-section-form form div input,
+  .contact-section-form form textarea {
+    width: 100%;
+    padding: .75rem;
+  }
+}
+
+
+/* ********************************************************* */
+/* *************************************************** */
 /* ***************** Cart page ***************** */
 /* *************************************************** */
 /* ********************************************************* */
@@ -1744,62 +1828,6 @@ body {
     grid-template-columns: 650px;
   }
 }
-
-
-/* ********************************************************* */
-/* *************************************************** */
-/* ***************** contact Page ***************** */
-/* *************************************************** */
-/* ********************************************************* */
-
-.contact-grid-container {
-  grid-template-columns: 3fr 1fr;
-  gap: var(--size-100);
-}
-
-.contact-section-form form div {
-  width: 90%;
-}
-
-.contact-section-form form div input,
-.contact-section-form form textarea {
-  width: 90%;
-  height: 100%;
-  outline: none;
-  border: 1px solid hsl(var(--clr-secondary), 0.2);
-  border-radius: 5px;
-  resize: none;
-}
-
-.info-section {
-  --flex-dir-gap: .25rem;
-  --flex-gap: .5rem;
-}
-
-.map-section {
-  --flex-dir-gap: 0rem;
-  margin-top: var(--size-900);
-  padding-top: var(--size-900);
-}
-
-@media(max-width: 62em) {
-  .contact-grid-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media(max-width: 48em) {
-  .contact-section-form form div {
-    width: 100%;
-  }
-  
-  .contact-section-form form div input,
-  .contact-section-form form textarea {
-    width: 100%;
-    padding: .75rem;
-  }
-}
-
 
 
 /* *************************************************** */
