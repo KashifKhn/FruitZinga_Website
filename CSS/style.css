@@ -788,55 +788,6 @@ body {
   display: none;
 }
 
-/* hamburger btn design */
-.hamburger-btn {
-  position: fixed;
-  top: 4%;
-  right: 5%;
-  width: 35px;
-  height: 35px;
-  background-color: hsl(var(--clr-primary));
-  border: none;
-  cursor: pointer;
-  padding-inline: 5px;
-}
-
-
-.hamburger-icon,
-.hamburger-icon::after,
-.hamburger-icon::before {
-  display: flex;
-  background-color: hsl(var(--clr-secondary));
-  width: 25px;
-  height: 2.5px;
-  position: absolute;
-  transition: all .7s;
-}
-
-.hamburger-icon::after,
-.hamburger-icon::before {
-  content: "";
-}
-
-.hamburger-icon::after {
-  transform: translate(0px, -8px);
-}
-
-.hamburger-icon::before {
-  transform: translate(0px, 8px);
-}
-
-.rotate.hamburger-icon {
-  background-color: transparent;
-}
-
-.rotate.hamburger-icon::before {
-  transform: translateX(-0px) rotate(315deg);
-}
-
-.rotate.hamburger-icon::after {
-  transform: translateX(-0px) rotate(-315deg);
-}
 
 /* Hero bg */
 .primary-header-home {
@@ -1020,8 +971,57 @@ body {
 
   .nav-links .nav-link:last-child {
     border-bottom: none;
-
   }
+
+  /* hamburger btn design */
+.hamburger-btn {
+  position: fixed;
+  top: 4%;
+  right: 5%;
+  width: 35px;
+  height: 35px;
+  background-color: hsl(var(--clr-primary));
+  border: none;
+  cursor: pointer;
+  padding-inline: 5px;
+}
+
+
+.hamburger-icon,
+.hamburger-icon::after,
+.hamburger-icon::before {
+  display: flex;
+  background-color: hsl(var(--clr-secondary));
+  width: 25px;
+  height: 2.5px;
+  position: absolute;
+  transition: all .7s;
+}
+
+.hamburger-icon::after,
+.hamburger-icon::before {
+  content: "";
+}
+
+.hamburger-icon::after {
+  transform: translate(0px, -8px);
+}
+
+.hamburger-icon::before {
+  transform: translate(0px, 8px);
+}
+
+.rotate.hamburger-icon {
+  background-color: transparent;
+}
+
+.rotate.hamburger-icon::before {
+  transform: translateX(-0px) rotate(315deg);
+}
+
+.rotate.hamburger-icon::after {
+  transform: translateX(-0px) rotate(-315deg);
+}
 
   .nav-links li a {
     display: inline-block;
@@ -1537,7 +1537,7 @@ body {
 
 /* ********************************************************* */
 /* *************************************************** */
-/* ***************** About ***************** */
+/* ***************** About page ***************** */
 /* *************************************************** */
 /* ********************************************************* */
 
@@ -1649,7 +1649,7 @@ body {
 
 /* ********************************************************* */
 /* *************************************************** */
-/* ***************** Cart ***************** */
+/* ***************** Cart page ***************** */
 /* *************************************************** */
 /* ********************************************************* */
 
@@ -1746,6 +1746,53 @@ body {
 }
 
 
+/* ********************************************************* */
+/* *************************************************** */
+/* ***************** contact Page ***************** */
+/* *************************************************** */
+/* ********************************************************* */
+
+.contact-grid-container {
+  grid-template-columns: 3fr 1fr;
+  gap: var(--size-100);
+}
+
+.contact-section-form form div {
+  width: 90%;
+}
+
+.contact-section-form form div input,
+.contact-section-form form textarea {
+  width: 90%;
+  height: 100%;
+  outline: none;
+  border: 1px solid hsl(var(--clr-secondary), 0.2);
+  border-radius: 5px;
+  resize: none;
+}
+
+.info-section {
+  --flex-dir-gap: .25rem;
+  --flex-gap: .5rem;
+}
+
+@media(max-width: 62em) {
+  .contact-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 48em) {
+  .contact-section-form form div {
+    width: 100%;
+  }
+  
+  .contact-section-form form div input,
+  .contact-section-form form textarea {
+    width: 100%;
+    padding: .75rem;
+  }
+}
 
 
 
@@ -1770,4 +1817,5 @@ body {
 .scroll-to-top:focus {
   background-color: hsl(var(--clr-secondary));
   color: hsl(var(--clr-primary));
+  border: 2px dotted hsl(var(--clr-primary));
 }
