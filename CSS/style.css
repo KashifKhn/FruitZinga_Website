@@ -607,8 +607,7 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 
-.secondary-btn:hover,
-.secondary-btn:focus {
+.secondary-btn:hover {
   background-color: hsl(var(--clr-primary));
   color: hsl(var(--clr-white));
 }
@@ -1652,7 +1651,8 @@ body {
 /* ***************** News Page ***************** */
 /* *************************************************** */
 /* ********************************************************* */
-.news-tab-btns button {
+
+.tab-btns button {
   --size-100: 10px;
   border: 1px solid hsl(var(--clr-secondary), 0.06);
   outline: none;
@@ -1661,7 +1661,7 @@ body {
   transition: all .3s ease-in-out;
 }
 
-.news-tab-btns button:hover {
+.tab-btns button:hover {
   border: 1px solid hsl(var(--clr-primary));
   background: hsl(var(--clr-primary));
   color: hsl(var(--clr-secondary));
@@ -1669,10 +1669,27 @@ body {
 
 @media (max-width: 48em) {
 
-  .news-tab-btns button:nth-child(3),
-  .news-tab-btns button:nth-child(4) {
+  .tab-btns button:nth-child(3),
+  .tab-btns button:nth-child(4) {
     display: none;
   }
+}
+
+
+/* ********************************************************* */
+/* *************************************************** */
+/* ***************** Shop Page ***************** */
+/* *************************************************** */
+/* ********************************************************* */
+
+.filter-section-container {
+  /* --flex-gap: 1rem; */
+  flex-wrap: wrap;
+}
+
+.filter-active.secondary-btn {
+  background: hsl(var(--clr-primary));
+  color: hsl(var(--clr-white));
 }
 
 
