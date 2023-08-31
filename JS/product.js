@@ -7,9 +7,18 @@ addToCartBtns.forEach((btn) => {
         console.log(clickedItem);
         const productId = clickedItem.dataset.productId;
         const isItemInCart = cartItems.some(cartItem => cartItem === productId);
-        if (!isItemInCart) {
+        if (!isItemInCart) {     
+            let cartCount = localStorage.getItem("itemCount");
+            cartCount++;
+            localStorage.setItem("itemCount", cartCount);
             cartItems.push(productId);
             localStorage.setItem("productId", JSON.stringify(cartItems));
         }
+        else {
+            alert("This item is already in your cart");
+        }
     });
 });
+
+// // ********************** Cart count *********************************
+

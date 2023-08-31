@@ -52,7 +52,6 @@
     /* 30px */
   }
 
-
   /* font-weight */
   --fw-100: 100;
   --fw-200: 200;
@@ -783,6 +782,19 @@ body {
   color: hsl(var(--clr-white));
 }
 
+.header-cart-icon {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -45%;
+  right: -40%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
 .desktop-hide {
   display: none;
 }
@@ -973,54 +985,54 @@ body {
   }
 
   /* hamburger btn design */
-.hamburger-btn {
-  position: fixed;
-  top: 4%;
-  right: 5%;
-  width: 35px;
-  height: 35px;
-  background-color: hsl(var(--clr-primary));
-  border: none;
-  cursor: pointer;
-  padding-inline: 5px;
-}
+  .hamburger-btn {
+    position: fixed;
+    top: 4%;
+    right: 5%;
+    width: 35px;
+    height: 35px;
+    background-color: hsl(var(--clr-primary));
+    border: none;
+    cursor: pointer;
+    padding-inline: 5px;
+  }
 
 
-.hamburger-icon,
-.hamburger-icon::after,
-.hamburger-icon::before {
-  display: flex;
-  background-color: hsl(var(--clr-secondary));
-  width: 25px;
-  height: 2.5px;
-  position: absolute;
-  transition: all .7s;
-}
+  .hamburger-icon,
+  .hamburger-icon::after,
+  .hamburger-icon::before {
+    display: flex;
+    background-color: hsl(var(--clr-secondary));
+    width: 25px;
+    height: 2.5px;
+    position: absolute;
+    transition: all .7s;
+  }
 
-.hamburger-icon::after,
-.hamburger-icon::before {
-  content: "";
-}
+  .hamburger-icon::after,
+  .hamburger-icon::before {
+    content: "";
+  }
 
-.hamburger-icon::after {
-  transform: translate(0px, -8px);
-}
+  .hamburger-icon::after {
+    transform: translate(0px, -8px);
+  }
 
-.hamburger-icon::before {
-  transform: translate(0px, 8px);
-}
+  .hamburger-icon::before {
+    transform: translate(0px, 8px);
+  }
 
-.rotate.hamburger-icon {
-  background-color: transparent;
-}
+  .rotate.hamburger-icon {
+    background-color: transparent;
+  }
 
-.rotate.hamburger-icon::before {
-  transform: translateX(-0px) rotate(315deg);
-}
+  .rotate.hamburger-icon::before {
+    transform: translateX(-0px) rotate(315deg);
+  }
 
-.rotate.hamburger-icon::after {
-  transform: translateX(-0px) rotate(-315deg);
-}
+  .rotate.hamburger-icon::after {
+    transform: translateX(-0px) rotate(-315deg);
+  }
 
   .nav-links li a {
     display: inline-block;
@@ -1739,7 +1751,7 @@ body {
   .contact-section-form form div {
     width: 100%;
   }
-  
+
   .contact-section-form form div input,
   .contact-section-form form textarea {
     width: 100%;

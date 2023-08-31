@@ -38,9 +38,9 @@ subNavPlusBtns.forEach((btn) => {
             }
         });
         subNav.classList.toggle("active-sub-nav-link");
-        if (subNav.classList.contains("active-sub-nav-link")) 
+        if (subNav.classList.contains("active-sub-nav-link"))
             subNavPlus.className = "fa-solid fa-minus";
-         else 
+        else
             subNavPlus.className = "fa-solid fa-plus";
     });
 });
@@ -48,12 +48,8 @@ subNavPlusBtns.forEach((btn) => {
 // ********************** active Links ********************************* 
 const activePage = window.location.pathname;
 const navLinksActive = document.querySelectorAll("nav a");
-// navLinks.forEach(link => {
-//     if(link.href.includes('${activePage}'))
-//         console.log('${activePage}');
-// });
 navLinksActive.forEach(link => {
-    if(link.href === window.location.origin + activePage)
+    if (link.href === window.location.origin + activePage)
         link.classList.add('active-Link');
 });
 
@@ -87,3 +83,26 @@ scrollTopBtn.addEventListener('click', () => {
         behavior: "smooth"
     });
 });
+
+// ********************** cart count *********************************
+setInterval(() => {
+    try {
+        // const cartCountBox = document.querySelector("[data-cart-count-box]");
+        const cartCountElement = document.querySelector("[data-cart-item-count]");
+        let itemCountNoParse = localStorage.getItem("itemCount");
+        if (itemCountNoParse != NaN && itemCountNoParse != null) {
+            const cartCount = JSON.parse(itemCountNoParse);
+            cartCountElement.innerText = parseInt(cartCount);
+            let productId = JSON.parse(localStorage.getItem("productId"));
+            if (productId == "") {
+                localStorage.setItem("itemCount", 0);
+                cartCountElement.innerText = 0;
+            }
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}, 10);
+
+
+

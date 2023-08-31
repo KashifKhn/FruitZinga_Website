@@ -38,17 +38,22 @@ function addItemToCart(itemImage, itemName, itemPrice, itemId) {
         const cartItemId = buttonClicked.parentElement.parentElement.dataset.cartItemId;
         const cartItem = document.querySelector(`[data-cart-item-id="${cartItemId}"]`);
         cartItem.remove();
+        let product = productList.find(product => product.id == cartItemId);
+        let productQun = product.productQun;
+        let cartCount = parseInt(JSON.parse(localStorage.getItem("itemCount")));
+        cartCount = (cartCount - productQun);
+        localStorage.setItem("itemCount", JSON.stringify(cartCount));
         const productIdArray = JSON.parse(localStorage.getItem("productId"));
         const index = productIdArray.indexOf(cartItemId);
         productIdArray.splice(index, 1);
         localStorage.setItem("productId", JSON.stringify(productIdArray));
         updateCartTotal();
     });
-    cardRow.querySelector("[data-item-quantity]").addEventListener("change", (e) => {
-        if (isNaN(e.target.value) || e.target.value <= 0)
-            e.target.value = 1;
-        updateCartTotal();
-    });
+    // cardRow.querySelector("[data-item-quantity]").addEventListener("change", (e) => {
+    //     if (isNaN(e.target.value) || e.target.value <= 0)
+    //         e.target.value = 1;
+    //     updateCartTotal();
+    // });
     updateCartTotal();
 }
 if (window.location.href.includes("cart")) {
@@ -57,22 +62,7 @@ if (window.location.href.includes("cart")) {
         updateCartTotal();
     });
 }
-// const removeCartItemBtn = document.querySelectorAll("[data-item-delete] i");
-// removeCartItemBtn.forEach((btn) => {
-//     btn.addEventListener("click", (e) => {
-//         let buttonClicked = e.target;
-//         const cartItemId = buttonClicked.parentElement.parentElement.dataset.cartItemId;
-//         console.log(cartItemId);
-//         // const cartItem = document.querySelector(`[data-cart-item-id="${cartItemId}"]`);
-//         // cartItem.remove();
-//         // const productIdArray = JSON.parse(localStorage.getItem("productId"));
-//         // const index = productIdArray.indexOf(cartItemId);
-//         // productIdArray.splice(index, 1);
-//         // console.log(productIdArray);
-//         // localStorage.setItem("productId", JSON.stringify(productIdArray));
-//         // updateCartTotal();
-//     });
-// });
+
 function updateCartTotal() {
     const cartItemContainer = document.querySelector("[data-cart-item-container]");
     const cartRows = cartItemContainer.querySelectorAll("[data-cart-item-row]");
@@ -110,13 +100,21 @@ quantityElement.forEach((quantity) => {
     });
 });
 const allCartRow = document.querySelectorAll("[data-cart-item-row]");
-if(allCartRow.length != 0) {
+if (allCartRow.length != 0) {
     allCartRow.forEach((row) => {
+        let previousQuantity = row.querySelector("[data-item-quantity]").value;
         const quantity = row.querySelector("[data-item-quantity]");
         quantity.addEventListener("change", (e) => {
             const itemId = e.target.parentElement.parentElement.dataset.cartItemId;
             const product = productList.find(product => product.id == itemId);
             product.productQun = e.target.value;
+            let cartCount = parseInt(JSON.parse(localStorage.getItem("itemCount")));
+            if(e.target.value > previousQuantity)
+                cartCount += (e.target.value - previousQuantity);
+            else
+                cartCount -= (previousQuantity - e.target.value);
+            previousQuantity = e.target.value;
+            localStorage.setItem("itemCount", cartCount);
             localStorage.setItem("productList", JSON.stringify(productList));
         });
     });

@@ -50,51 +50,65 @@
                                 class="fa-sharp fa-solid fa-angle-down"></i></a>
                         <p data-plus-btn class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
                         <ul data-sub-nav-links class="sub-nav-links">
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="404Page.html">404 page</a>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="404Page.html">404
+                                    page</a>
                             </li>
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="about.html">About</a></li>
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="cart.html">Cart</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
+                                    href="about.html">About</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
+                                    href="cart.html">Cart</a></li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Check Out</a>
                             </li>
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="contact.html">Contact</a>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
+                                    href="contact.html">Contact</a>
                             </li>
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="news.html">News</a></li>
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="shop.html">Shop</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
+                                    href="news.html">News</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
+                                    href="shop.html">Shop</a></li>
                         </ul>
                     </li>
                     <li class="nav-link nav-tab-link"><a class="underline-hover-link hover-link" href="#">News <i
                                 class="fa-sharp fa-solid fa-angle-down"></i></a>
                         <p data-plus-btn class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
                         <ul data-sub-nav-links class="sub-nav-links ">
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="news.html">News</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
+                                    href="news.html">News</a></li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Single News</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-link"><a class="underline-hover-link hover-link" href="contact.html">Contact</a></li>
-                    <li class="nav-link nav-tab-link"><a class="underline-hover-link hover-link" href="shop.html">Shop <i
-                                class="fa-sharp fa-solid fa-angle-down"></i></a>
+                    <li class="nav-link nav-tab-link"><a class="underline-hover-link hover-link" href="shop.html">Shop
+                            <i class="fa-sharp fa-solid fa-angle-down"></i></a>
                         <p data-plus-btn class="plus-btn text-clr-primary"><i class="fa-solid fa-plus"></i></p>
                         <ul data-sub-nav-links class="sub-nav-links">
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="shop.html">Shop</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
+                                    href="shop.html">Shop</a></li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Check Out</a>
                             </li>
                             <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="#">Single
                                     Product</a></li>
-                            <li class="sub-nav-link"><a class="underline-hover-link hover-link" href="cart.html">Cart</a></li>
+                            <li class="sub-nav-link"><a class="underline-hover-link hover-link"
+                                    href="cart.html">Cart</a></li>
                         </ul>
                     </li>
                 </ul>
                 <div class="header-icon flex">
-                    <a class="hover-link text-clr-white" href="cart.html">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
+                    <div class="header-cart-icon">
+                        <a class="hover-link text-clr-white cart-icon" href="cart.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                        <div data-cart-count-box class="cart-count flex ai-jc-center bg-clr-primary">
+                            <p data-cart-item-count class="text-clr-white fs-13 fw-400"></p>
+                        </div>
+                    </div>
                     <p data-search-open-btn class="hover-link text-clr-white">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </p>
                 </div>
                 <div class="desktop-hide humberger-menu">
-                    <button data-hamburger-btn  class="hamburger-btn PR">
+                    <button data-hamburger-btn class="hamburger-btn PR">
                         <div data-hamburger-icon class="hamburger-icon"></div>
                     </button>
                 </div>
@@ -155,7 +169,7 @@
                         elit. Aliquid fuga quas itaque eveniet beatae optio.</p>
                 </div>
                 <div class="product-card-container max-mg-block flex">
-                    <div class="product-card text-center shadow max-pd-block">
+                    <div data-product-id="0" data-product-card="strawberry" class="product-card text-center shadow max-pd-block">
                         <div class="product-card-img">
                             <a href="#">
                                 <img data-card-item-img src="Image/products/product-img-1.jpg" alt="strawberry img">
@@ -170,7 +184,7 @@
                                     class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card text-center shadow max-pd-block">
+                    <div data-product-id="1" data-product-card="grapes" class="product-card text-center shadow max-pd-block">
                         <div class="product-card-img">
                             <a href="#">
                                 <img data-card-item-img src="Image/products/product-img-2.jpg" alt="strawberry img">
@@ -179,13 +193,13 @@
                         <div class="product-card-content ai-jc-center flex-dir-col text-center">
                             <h6 data-card-item-title class="fs-20 text-clr-secondary">Black Grapes</h6>
                             <p class=""><span class="d-block text-clr-light fs-15 fw-400">Per Kg</span>
-                                <span data-card-item-price class="ff-poppins fs-30 text-clr-secondary fw-900">85$</span>
+                                <span data-card-item-price class="ff-poppins fs-30 text-clr-secondary fw-900">80$</span>
                             </p>
                             <button data-add-to-cart-btn class="add-cart-btn | primary-btn d-block fs-14 fw-500"><i
                                     class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card text-center max-pd-block shadow">
+                    <div data-product-id="2" data-product-card="lemon" class="product-card text-center max-pd-block shadow">
                         <div class="product-card-img">
                             <a href="#">
                                 <img data-card-item-img src="Image/products/product-img-3.jpg" alt="strawberry img">
@@ -194,7 +208,7 @@
                         <div class="product-card-content ai-jc-center flex-dir-col text-center">
                             <h6 data-card-item-title class="fs-20 text-clr-secondary">Lemon</h6>
                             <p class=""><span class="d-block text-clr-light fs-15 fw-400">Per Kg</span>
-                                <span data-card-item-price class="ff-poppins fs-30 text-clr-secondary fw-900">85$</span>
+                                <span data-card-item-price class="ff-poppins fs-30 text-clr-secondary fw-900">25$</span>
                             </p>
                             <button data-add-to-cart-btn class="add-cart-btn | primary-btn d-block fs-14 fw-500"><i
                                     class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
@@ -291,8 +305,8 @@
         <section class="about-section">
             <div class="container about-section-container flex max-pd-block">
                 <div class="about-section-video max-pd-block text-center fs-40"><a
-                        class="bg-clr-primary text-center flex ai-jc-center" href="https://youtu.be/BCrXYnnBfmU" target="_blank"><i
-                            class="fa-solid fa-play"></i></a></div>
+                        class="bg-clr-primary text-center flex ai-jc-center" href="https://youtu.be/BCrXYnnBfmU"
+                        target="_blank"><i class="fa-solid fa-play"></i></a></div>
                 <div class="about-section-content">
                     <p class="fs-15 text-clr-secondary xs-mg-block">Since Year 1999</p>
                     <h3 class="fs-42 fw-700 xs-mg-block">We are <span class="text-clr-primary">FruitZinga</span></h3>
@@ -457,7 +471,8 @@
                         <p class="fs-14 text-clr-white">Subscribe to our mailing list to get the latest updates.</p>
                         <div class="footer-input-box flex">
                             <input class="text-clr-white bg-clr-secondary-light" type="email" placeholder="Email">
-                            <button type="submit" class="bg-clr-secondary-light text-clr-primary text-center"><i class="fa-solid fa-paper-plane"></i></button>
+                            <button type="submit" class="bg-clr-secondary-light text-clr-primary text-center"><i
+                                    class="fa-solid fa-paper-plane"></i></button>
                         </div>
                     </div>
                 </div>
@@ -466,21 +481,32 @@
         <section class="sub-footer-section bg-clr-secondary">
             <div class="container sub-footer-container md-pd-block flex ai-jc-sb">
                 <div class="sub-footer-copy-right flex-dir-col">
-                    <p class="text-clr-light fs-15">Copyrights &copy; 2023 - <a class="fs-15 fw-600 uppercase text-clr-white hover-link underline-hover-link" href="https://github.com/KashifKhn" target="_blank">Kashif Khan</a>, All Rights Reserved. </p>
-                    <p class="text-clr-light fs-15">Distributed By - <a class="fs-15 fw-600 uppercase text-clr-white hover-link underline-hover-link" href="https://github.com/KashifKhn" target="_blank">Kashif Khan</a></p>
+                    <p class="text-clr-light fs-15">Copyrights &copy; 2023 - <a
+                            class="fs-15 fw-600 uppercase text-clr-white hover-link underline-hover-link"
+                            href="https://github.com/KashifKhn" target="_blank">Kashif Khan</a>, All Rights Reserved.
+                    </p>
+                    <p class="text-clr-light fs-15">Distributed By - <a
+                            class="fs-15 fw-600 uppercase text-clr-white hover-link underline-hover-link"
+                            href="https://github.com/KashifKhn" target="_blank">Kashif Khan</a></p>
                 </div>
                 <div class="sub-footer-icon">
-                    <a class="hover-link underline-hover-link text-clr-white fs-18 xs-pd-inline" href="https://www.linkedin.com/in/kashif-khan-422707259/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a class="hover-link underline-hover-link text-clr-white fs-18 xs-pd-inline" href="https://github.com/KashifKhn" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a class="hover-link underline-hover-link text-clr-white fs-18 xs-pd-inline" href="https://codepen.io/KashifKhn" target="_blank"><i class="fa-brands fa-codepen"></i></a>
-                    <a class="hover-link underline-hover-link text-clr-white fs-18 xs-pd-inline" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a class="hover-link underline-hover-link text-clr-white fs-18 xs-pd-inline"
+                        href="https://www.linkedin.com/in/kashif-khan-422707259/" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a class="hover-link underline-hover-link text-clr-white fs-18 xs-pd-inline"
+                        href="https://github.com/KashifKhn" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a class="hover-link underline-hover-link text-clr-white fs-18 xs-pd-inline"
+                        href="https://codepen.io/KashifKhn" target="_blank"><i class="fa-brands fa-codepen"></i></a>
+                    <a class="hover-link underline-hover-link text-clr-white fs-18 xs-pd-inline" target="_blank"><i
+                            class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
         </section>
     </footer>
 
     <!--******** scroll to Top ******** -->
-    <div data-back-top class="scroll-to-top text-center bg-clr-primary fs-24 fw-300"><i class="fa-solid fa-arrow-up "></i></div>
+    <div data-back-top class="scroll-to-top text-center bg-clr-primary fs-24 fw-300"><i
+            class="fa-solid fa-arrow-up "></i></div>
     <!-- <div class="spacer" style="height: 100vh;"></div> -->
 
     <!--******** Plugins ******** -->
@@ -488,6 +514,8 @@
     <script src="JS/brandLogoCarousel.js"></script>
     <script src="JS/testimonialCarousel.js"></script>
     <script src="JS/product.js"></script>
+    <script src="JS/productList.js"></script>
+
 
 
     <script src="https://kit.fontawesome.com/766675f9af.js" crossorigin="anonymous"></script>

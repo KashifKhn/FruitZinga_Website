@@ -86,9 +86,14 @@
                     </li>
                 </ul>
                 <div class="header-icon flex">
-                    <a class="hover-link text-clr-white" href="cart.html">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
+                    <div class="header-cart-icon">
+                        <a class="hover-link text-clr-white cart-icon" href="cart.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                        <div data-cart-count-box class="cart-count flex ai-jc-center bg-clr-primary">
+                            <p data-cart-item-count class="text-clr-white fs-13 fw-400"></p>
+                        </div>
+                    </div>
                     <p data-search-open-btn class="hover-link text-clr-white">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </p>
