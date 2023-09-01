@@ -87,7 +87,7 @@ scrollTopBtn.addEventListener('click', () => {
 // ********************** cart count *********************************
 setInterval(() => {
     try {
-        // const cartCountBox = document.querySelector("[data-cart-count-box]");
+        const cartCountBox = document.querySelector("[data-cart-count-box]");
         const cartCountElement = document.querySelector("[data-cart-item-count]");
         let itemCountNoParse = localStorage.getItem("itemCount");
         if (itemCountNoParse != NaN && itemCountNoParse != null) {
@@ -97,6 +97,11 @@ setInterval(() => {
             if (productId == "") {
                 localStorage.setItem("itemCount", 0);
                 cartCountElement.innerText = 0;
+                // display none
+                cartCountBox.style.display = "none";
+            }
+            else {
+                cartCountBox.style.display = "flex";
             }
         }
     } catch (error) {
@@ -104,5 +109,18 @@ setInterval(() => {
     }
 }, 10);
 
+// ********************** Accordion *********************************
+const accordionItem = document.querySelectorAll("[data-accordion-item]");
+accordionItem.forEach(item => {
+    const accordionTitle = item.querySelector("[data-accordion-item-title]");
+    accordionTitle.addEventListener('click', () => {
+        for (let i = 0; i < accordionItem.length; i++) {
+            if (accordionItem[i] != item)
+                accordionItem[i].classList.remove("accordion-active");
+            else
+                item.classList.toggle("accordion-active");
+        }
+    });
+});
 
 

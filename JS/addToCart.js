@@ -90,6 +90,10 @@ function updateCartTotal() {
         totalElement.innerText = '$' + total;
     else
         totalElement.innerText = '$0';
+    
+    // let totalToStore = localStorage.getItem("total") ? parseFloat(localStorage.getItem("total")) : 0;
+    // totalToStore = total;
+    // localStorage.setItem("total", totalToStore);
 }
 const quantityElement = document.querySelectorAll("[data-item-quantity]");
 quantityElement.forEach((quantity) => {
@@ -109,7 +113,7 @@ if (allCartRow.length != 0) {
             const product = productList.find(product => product.id == itemId);
             product.productQun = e.target.value;
             let cartCount = parseInt(JSON.parse(localStorage.getItem("itemCount")));
-            if(e.target.value > previousQuantity)
+            if (e.target.value > previousQuantity)
                 cartCount += (e.target.value - previousQuantity);
             else
                 cartCount -= (previousQuantity - e.target.value);
@@ -119,4 +123,90 @@ if (allCartRow.length != 0) {
         });
     });
 }
+
+// genrate coupon code form random string array 
+const couponCode = [
+    {
+        code: "kashif",
+        discount: 100
+    },
+    {
+        code: "kashifKhan",
+        discount: 150
+    },
+    {
+        code: "fruitzinga",
+        discount: 50
+    },
+    {
+        code: "atif",
+        discount: 80
+    },
+    {
+        code: "wasif",
+        discount: 90
+    },
+    {
+        code: "family",
+        discount: 70
+    },
+    {
+        code: "friends",
+        discount: 60
+    },
+]
+
+
+const couponCodeInput = document.querySelector("[data-coupon-input]");
+const couponCodeBtn = document.querySelector("[data-coupon-apply-btn]");
+
+couponCodeBtn.addEventListener("click", () => {
+    let couponCodeValue = couponCodeInput.value;
+    let couponCodeObj = couponCode.find(code => code.code == couponCodeValue);
+    if (couponCodeObj) {
+        let discount = couponCodeObj.discount;
+        const subTotalElement = document.querySelector("[data-sub-total]");
+        const subTotal = parseFloat(subTotalElement.innerText.replace("$", ""));
+        let total = subTotal - discount;
+        Math.round(total * 100) / 100;
+        const totalElement = document.querySelector("[data-total]");
+        totalElement.innerText = '$' + total;
+        couponCodeInput.value = "";
+        let i = 0;
+        const couponMsg = 'Coupon Apply Successfully'; 
+        let speed = 50; 
+        function typeWriter() {
+            if (i < couponMsg.length) {
+                document.querySelector("[data-coupon-message]").innerHTML += couponMsg.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+        typeWriter();
+        setTimeout(() => {
+            let i = couponMsg.length;
+            let speed = 50;
+            function untypedWriter() {
+                if (i > 0) {
+                    document.querySelector("[data-coupon-message]").innerHTML = couponMsg.substring(0, i - 1);
+                    i--;
+                    setTimeout(untypedWriter, speed);
+                }
+            }
+            untypedWriter();
+        }, 5000);
+    }
+    else {
+        alert("Invalid Coupon Code");
+    }
+});
+
+
+
+
+
+
+
+
+
 

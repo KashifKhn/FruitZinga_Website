@@ -1082,6 +1082,10 @@ body {
     font-size: var(--fs-20);
   }
 
+  .cart-count p {
+    font-size: .75rem;
+  }
+
   .primary-header-btn {
     width: 100%;
     flex-direction: column;
@@ -1857,6 +1861,64 @@ body {
     grid-template-columns: 650px;
   }
 }
+
+/* ********************************************************* */
+/* *************************************************** */
+/* ***************** CheckOut page ***************** */
+/* *************************************************** */
+/* ********************************************************* */
+
+/* .check-out-accordion {
+
+} */
+
+.check-grid-container {
+  grid-template-columns: 2.5fr 1fr;
+}
+
+.accordion-item {
+  cursor: pointer;
+}
+
+.accordion-body {
+  display: none;
+  border: 1px solid hsl(var(--clr-secondary), 0.1);
+  border-top: none;
+}
+
+.accordion-body-form {
+  width: 100%;
+}
+
+.accordion-body-form input,
+.accordion-body-form textarea {
+  width: 90%;
+  margin-inline: auto;
+  outline: none;
+  border: 1px solid hsl(var(--clr-secondary), 0.2);
+  border-radius: 3px;
+  resize: none;
+}
+
+.accordion-body-form textarea {
+  height: 150px;
+}
+
+.accordion-body-form input:focus,
+.accordion-body-form textarea:focus {
+  border: 1px solid hsl(var(--clr-primary));
+}
+
+.accordion-item.accordion-active .accordion-body {
+  display: flex;
+  cursor: pointer;
+}
+
+
+
+/* to animate it like down and up */
+
+
 
 
 /* *************************************************** */
