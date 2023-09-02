@@ -49,19 +49,13 @@ function addItemToCart(itemImage, itemName, itemPrice, itemId) {
         localStorage.setItem("productId", JSON.stringify(productIdArray));
         updateCartTotal();
     });
-    // cardRow.querySelector("[data-item-quantity]").addEventListener("change", (e) => {
-    //     if (isNaN(e.target.value) || e.target.value <= 0)
-    //         e.target.value = 1;
-    //     updateCartTotal();
-    // });
     updateCartTotal();
 }
-if (window.location.href.includes("cart")) {
-    const updateCartBtn = document.querySelector("[data-update-cart]");
-    updateCartBtn.addEventListener('click', () => {
-        updateCartTotal();
-    });
-}
+
+const updateCartBtn = document.querySelector("[data-update-cart]");
+updateCartBtn.addEventListener('click', () => {
+    updateCartTotal();
+});
 
 function updateCartTotal() {
     const cartItemContainer = document.querySelector("[data-cart-item-container]");
@@ -81,19 +75,53 @@ function updateCartTotal() {
     });
     Math.round(subTotal * 100) / 100;
     const subTotalElement = document.querySelector("[data-sub-total]");
+    const shippingElement = document.querySelector("[data-shipping-price]");
+    const totalElement = document.querySelector("[data-total-original]");
+    const totalElementDis = document.querySelector("[data-total-after-coupon]");
     subTotalElement.innerText = '$' + subTotal;
-    const shippingPrice = parseFloat(document.querySelector("[data-shipping-price]").innerText.replace("$", ""));
-    let total = subTotal + shippingPrice;
-    Math.round(total * 100) / 100;
-    const totalElement = document.querySelector("[data-total]");
-    if (subTotal != 0)
-        totalElement.innerText = '$' + total;
+    let shippingPrice = parseInt(shippingElement.innerText.replace("$", ""));
+
+    if (subTotal >= 75) {
+        shippingElement.style.textDecoration = "line-through 2px #f27f21";
+        shippingPrice = 0;
+    }
     else
-        totalElement.innerText = '$0';
-    
-    // let totalToStore = localStorage.getItem("total") ? parseFloat(localStorage.getItem("total")) : 0;
-    // totalToStore = total;
-    // localStorage.setItem("total", totalToStore);
+        shippingElement.style.textDecoration = "none";
+    let total = 0;
+    total = subTotal + shippingPrice;
+    const totalWithOutCoupon = total;
+    let couponDiscount = parseInt(localStorage.getItem("couponDiscount"));
+    console.log(couponDiscount)
+    if (isNaN(couponDiscount))
+        couponDiscount = 1;
+    console.log(couponDiscount)
+    if(couponDiscount != 1) {
+        couponDiscount = (total * couponDiscount) / 100;
+        total = total - couponDiscount;
+    }
+    Math.round(total * 100) / 100;
+    if (productId == "" || productId == null || productId == undefined) {
+        total = 0;
+        subTotal = 0;
+        localStorage.removeItem("total");
+        localStorage.removeItem("subtotal");
+    }
+    if (total < 0) total = 0;
+    if (couponDiscount != 1) {
+        let discount = totalWithOutCoupon - total;
+        totalElementDis.innerText = '$' + total;
+        totalElement.innerText = '$' + `${totalWithOutCoupon}`;
+        totalElement.style.textDecoration = "line-through 2px #f27f21";
+        totalElementDis.style.display = "block";
+    }
+    else {
+        totalElement.innerText = '$' + total;
+        totalElementDis.innerText = "";
+        totalElementDis.style.display = "none";
+        totalElement.style.textDecoration = "none";
+    }
+    localStorage.setItem("total", total);
+    localStorage.setItem("subtotal", subTotal);
 }
 const quantityElement = document.querySelectorAll("[data-item-quantity]");
 quantityElement.forEach((quantity) => {
@@ -103,6 +131,7 @@ quantityElement.forEach((quantity) => {
         updateCartTotal();
     });
 });
+
 const allCartRow = document.querySelectorAll("[data-cart-item-row]");
 if (allCartRow.length != 0) {
     allCartRow.forEach((row) => {
@@ -124,57 +153,20 @@ if (allCartRow.length != 0) {
     });
 }
 
-// genrate coupon code form random string array 
-const couponCode = [
-    {
-        code: "kashif",
-        discount: 100
-    },
-    {
-        code: "kashifKhan",
-        discount: 150
-    },
-    {
-        code: "fruitzinga",
-        discount: 50
-    },
-    {
-        code: "atif",
-        discount: 80
-    },
-    {
-        code: "wasif",
-        discount: 90
-    },
-    {
-        code: "family",
-        discount: 70
-    },
-    {
-        code: "friends",
-        discount: 60
-    },
-]
-
-
 const couponCodeInput = document.querySelector("[data-coupon-input]");
 const couponCodeBtn = document.querySelector("[data-coupon-apply-btn]");
-
+let couponCode = JSON.parse(localStorage.getItem("coupon"))
 couponCodeBtn.addEventListener("click", () => {
     let couponCodeValue = couponCodeInput.value;
     let couponCodeObj = couponCode.find(code => code.code == couponCodeValue);
     if (couponCodeObj) {
-        let discount = couponCodeObj.discount;
-        const subTotalElement = document.querySelector("[data-sub-total]");
-        const subTotal = parseFloat(subTotalElement.innerText.replace("$", ""));
-        let total = subTotal - discount;
-        Math.round(total * 100) / 100;
-        const totalElement = document.querySelector("[data-total]");
-        totalElement.innerText = '$' + total;
-        couponCodeInput.value = "";
+        const couponDiscount = couponCodeObj.discount;
+        localStorage.setItem("couponDiscount", couponDiscount);
+        couponCode = couponCode.filter(code => code.code != couponCodeValue);
+        localStorage.setItem("coupon", JSON.stringify(couponCode));
         let i = 0;
-        const couponMsg = 'Coupon Apply Successfully'; 
-        let speed = 50; 
+        const couponMsg = 'Coupon Apply Successfully';
+        let speed = 50;
         function typeWriter() {
             if (i < couponMsg.length) {
                 document.querySelector("[data-coupon-message]").innerHTML += couponMsg.charAt(i);
@@ -195,18 +187,9 @@ couponCodeBtn.addEventListener("click", () => {
             }
             untypedWriter();
         }, 5000);
+        updateCartTotal();
     }
     else {
         alert("Invalid Coupon Code");
     }
 });
-
-
-
-
-
-
-
-
-
-

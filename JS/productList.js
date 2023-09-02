@@ -45,6 +45,41 @@ const productList = [
     },
 ];
 
+const couponCode = [
+    {
+        code: "kashif",
+        discount: 50
+    },
+    {
+        code: "kashifKhan",
+        discount: 40
+    },
+    {
+        code: "fruitzinga",
+        discount: 30
+    },
+    {
+        code: "atif",
+        discount: 25
+    },
+    {
+        code: "wasif",
+        discount: 35
+    },
+    {
+        code: "family",
+        discount: 45
+    },
+    {
+        code: "friends",
+        discount: 15
+    },
+]
+
+const couponStorage = JSON.parse(localStorage.getItem("coupon"))
+// if(couponStorage == null || couponStorage == "" || couponStorage == undefined)
+    localStorage.setItem("coupon", JSON.stringify(couponCode));
+
 const productListStorage = JSON.parse(localStorage.getItem("productList"));
 const productId = JSON.parse(localStorage.getItem("productId"));
 if (productListStorage == null || productListStorage == "" || productId == null || productId == "") {
@@ -53,5 +88,4 @@ if (productListStorage == null || productListStorage == "" || productId == null 
 let cartCount = JSON.parse(localStorage.getItem("itemCount"));
 if (cartCount == null || cartCount == "" || cartCount == NaN || cartCount == undefined)
     cartCount = 0;
-
 localStorage.setItem("itemCount", JSON.stringify(cartCount));

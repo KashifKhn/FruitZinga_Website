@@ -1830,7 +1830,8 @@ body {
 
 .total-header,
 .total-item {
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 2fr;
+
 }
 
 .cart-apply-coupon button {
@@ -1867,11 +1868,6 @@ body {
 /* ***************** CheckOut page ***************** */
 /* *************************************************** */
 /* ********************************************************* */
-
-/* .check-out-accordion {
-
-} */
-
 .check-grid-container {
   grid-template-columns: 2.5fr 1fr;
 }
@@ -1913,13 +1909,6 @@ body {
   display: flex;
   cursor: pointer;
 }
-
-
-
-/* to animate it like down and up */
-
-
-
 
 /* *************************************************** */
 /* ***************** Back to Top ***************** */
