@@ -68,12 +68,12 @@ function updateCartTotal() {
         let price = parseFloat(priceElement.innerText.replace("$", ""));
         let quantity = parseFloat(quantityElement.value);
         itemTotal = price * quantity;
-        Math.round(itemTotal * 100) / 100;
+        itemTotal = Math.round(itemTotal * 100) / 100;
         const totalElement = row.querySelector("[data-item-total]");
         totalElement.innerText = '$' + itemTotal;
         subTotal += itemTotal;
     });
-    Math.round(subTotal * 100) / 100;
+    subTotal =  Math.round(subTotal * 100) / 100;
     const subTotalElement = document.querySelector("[data-sub-total]");
     const shippingElement = document.querySelector("[data-shipping-price]");
     const totalElement = document.querySelector("[data-total-original]");
@@ -91,20 +91,18 @@ function updateCartTotal() {
     total = subTotal + shippingPrice;
     const totalWithOutCoupon = total;
     let couponDiscount = parseInt(localStorage.getItem("couponDiscount"));
-    console.log(couponDiscount)
     if (isNaN(couponDiscount))
         couponDiscount = 1;
-    console.log(couponDiscount)
     if(couponDiscount != 1) {
         couponDiscount = (total * couponDiscount) / 100;
         total = total - couponDiscount;
     }
-    Math.round(total * 100) / 100;
+    console.log(couponDiscount)
+    total = Math.round(total * 100) / 100;
     if (productId == "" || productId == null || productId == undefined) {
         total = 0;
         subTotal = 0;
-        localStorage.removeItem("total");
-        localStorage.removeItem("subtotal");
+        totalElementDis.style.display = "none";
     }
     if (total < 0) total = 0;
     if (couponDiscount != 1) {

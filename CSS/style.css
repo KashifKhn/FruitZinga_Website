@@ -1872,6 +1872,10 @@ body {
   grid-template-columns: 2.5fr 1fr;
 }
 
+.check-out-item-container .top {
+  border-top: 2px double hsl(var(--clr-secondary), 0.2);
+}
+
 .accordion-item {
   cursor: pointer;
 }
@@ -1908,6 +1912,17 @@ body {
 .accordion-item.accordion-active .accordion-body {
   display: flex;
   cursor: pointer;
+}
+
+@media (max-width: 62em) {
+  .check-grid-container {
+    grid-template-columns: 2fr 1.2fr;
+  }
+}
+@media (max-width: 48em) {
+  .check-grid-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* *************************************************** */

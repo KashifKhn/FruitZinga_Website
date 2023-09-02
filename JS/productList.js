@@ -85,6 +85,7 @@ const productId = JSON.parse(localStorage.getItem("productId"));
 if (productListStorage == null || productListStorage == "" || productId == null || productId == "") {
     localStorage.setItem("productList", JSON.stringify(productList));
 }
+
 let cartCount = JSON.parse(localStorage.getItem("itemCount"));
 if (cartCount == null || cartCount == "" || cartCount == NaN || cartCount == undefined)
     cartCount = 0;

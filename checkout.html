@@ -166,21 +166,27 @@
                             <p class="fs-14 fw-600 text-clr-secondary">Price</p>
                         </div>
                     </div>
-                    <div class="total-item-container flex-dir-col">
-                        <div class="total-item grid">
-                            <p class="fs-14 fw-500 text-clr-secondary xs-pd-inline sm-pd-block">SubTotal </p>
-                            <p data-sub-total class="fs-13 fw-400 text-clr-secondary xs-pd-inline sm-pd-block">$0</p>
+                    <div data-check-item-container class="check-out-item-container total-item-container flex-dir-col">
+                        <div class="check-out-item top total-item grid">
+                            <p class="fs-14 fw-600 text-clr-secondary xs-pd-inline sm-pd-block">SubTotal </p>
+                            <p data-sub-total class="fs-13 fw-500 text-clr-secondary xs-pd-inline sm-pd-block">$0</p>
                         </div>
-                        <div class="total-item grid">
-                            <p class="fs-14 fw-500 text-clr-secondary xs-pd-inline sm-pd-block">Shipping </p>
-                            <p data-shipping-price class="fs-13 fw-400 text-clr-secondary xs-pd-inline sm-pd-block">$20
+                        <div class="check-out-item total-item grid">
+                            <p class="fs-14 fw-600 text-clr-secondary xs-pd-inline sm-pd-block">Shipping </p>
+                            <p data-shipping-price class="fs-13 fw-500 text-clr-secondary xs-pd-inline sm-pd-block">$20
                             </p>
                         </div>
-                        <div class="total-item grid">
-                            <p class="fs-14 fw-500 text-clr-secondary xs-pd-inline sm-pd-block">Total </p>
-                            <p data-total class="fs-13 fw-400 text-clr-secondary xs-pd-inline sm-pd-block">$0</p>
+                        <div class="check-out-item total-item grid">
+                            <p class="fs-14 fw-600 text-clr-secondary xs-pd-inline sm-pd-block">Coupon Discount </p>
+                            <p data-discount class="fs-13 fw-500 text-clr-secondary xs-pd-inline sm-pd-block">$0
+                            </p>
+                        </div>
+                        <div class="check-out-item total-item grid">
+                            <p class="fs-14 fw-600 text-clr-secondary xs-pd-inline sm-pd-block">Total </p>
+                            <p data-total class="fs-13 fw-500 text-clr-secondary xs-pd-inline sm-pd-block">$0</p>
                         </div>
                     </div>
+                    <button data-place-order-btn class="sm-mg-block primary-btn">Place Order</button>
                 </div>
             </section>
         </div>
@@ -290,6 +296,7 @@
     <!--******** Plugins ******** -->
     <script src="JS/main.js"></script>
     <script src="JS/brandLogoCarousel.js"></script>
+    <script src="JS/checkOut.js"></script>
 
     <script src="https://kit.fontawesome.com/766675f9af.js" crossorigin="anonymous"></script>
 </body>
