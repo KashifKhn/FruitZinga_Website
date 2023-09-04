@@ -73,7 +73,7 @@ function updateCartTotal() {
         totalElement.innerText = '$' + itemTotal;
         subTotal += itemTotal;
     });
-    subTotal =  Math.round(subTotal * 100) / 100;
+    subTotal = Math.round(subTotal * 100) / 100;
     const subTotalElement = document.querySelector("[data-sub-total]");
     const shippingElement = document.querySelector("[data-shipping-price]");
     const totalElement = document.querySelector("[data-total-original]");
@@ -85,27 +85,32 @@ function updateCartTotal() {
         shippingElement.style.textDecoration = "line-through 2px #f27f21";
         shippingPrice = 0;
     }
-    else
+    else {
         shippingElement.style.textDecoration = "none";
+        if (subTotal == 0) {
+            shippingPrice = 0;
+            totalElementDis.style.display = "none";
+            totalElement.style.textDecoration = "none";
+        }
+    }
     let total = 0;
     total = subTotal + shippingPrice;
     const totalWithOutCoupon = total;
     let couponDiscount = parseInt(localStorage.getItem("couponDiscount"));
     if (isNaN(couponDiscount))
         couponDiscount = 1;
-    if(couponDiscount != 1) {
+    if (couponDiscount != 1) {
         couponDiscount = (total * couponDiscount) / 100;
         total = total - couponDiscount;
     }
-    console.log(couponDiscount)
     total = Math.round(total * 100) / 100;
-    if (productId == "" || productId == null || productId == undefined) {
+    if (!productId || (Array.isArray(productId) && productId.length === 0)) {
         total = 0;
         subTotal = 0;
-        totalElementDis.style.display = "none";
+        // totalElementDis.style.display = "none";
     }
     if (total < 0) total = 0;
-    if (couponDiscount != 1) {
+    if (couponDiscount != 1 && !(Array.isArray(productId) && productId.length === 0)) {
         let discount = totalWithOutCoupon - total;
         totalElementDis.innerText = '$' + total;
         totalElement.innerText = '$' + `${totalWithOutCoupon}`;
@@ -115,6 +120,10 @@ function updateCartTotal() {
     else {
         totalElement.innerText = '$' + total;
         totalElementDis.innerText = "";
+        totalElementDis.style.display = "none";
+        totalElement.style.textDecoration = "none";
+    }
+    if (subTotal == 0) {
         totalElementDis.style.display = "none";
         totalElement.style.textDecoration = "none";
     }

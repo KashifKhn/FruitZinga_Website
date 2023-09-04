@@ -1,5 +1,3 @@
-console.log("connected");
-
 // **************** sticky Nav bar ********************
 const primaryNav = document.querySelector("[data-primary-navigation]");
 const navSticky = primaryNav.offsetTop;
@@ -107,8 +105,8 @@ setInterval(() => {
             cartCountElement.innerText = 0;
             cartCountBox.style.display = "none";
         }
-        const productId = localStorage.getItem("productId");
-        if (!productId || productId === "") {
+        const productId = JSON.parse(localStorage.getItem("productId"));
+        if (!productId || (Array.isArray(productId) && productId.length === 0)) {
             localStorage.setItem("itemCount", 0);
             cartCountElement.innerText = 0;
             cartCountBox.style.display = "none";
@@ -135,5 +133,4 @@ accordionItem.forEach(item => {
         }
     });
 });
-
 
