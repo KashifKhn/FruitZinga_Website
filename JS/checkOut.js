@@ -14,7 +14,7 @@ else
     shippingElement.style.textDecoration = "none";
 if (total !== null && subTotal !== null) {
     subTotalElement.innerText = '$' + subTotal;
-    discountElement.innerText = '$' + discount;
+    discountElement.innerText = '- $' + discount;
     totalElement.innerText = '$' + total;
 }
 let productId = JSON.parse(localStorage.getItem("productId"));
@@ -53,6 +53,7 @@ placeOrderBtn.addEventListener('click', () => {
     localStorage.removeItem("couponDiscount");
     localStorage.removeItem("total");
     localStorage.removeItem("subtotal");
+    localStorage.removeItem("itemCount");
     location.reload();
     if (productId !== null && productId !== "")
         alert("Order Place Successfully");

@@ -1,3 +1,5 @@
+console.log("connected");
+
 // **************** sticky Nav bar ********************
 const primaryNav = document.querySelector("[data-primary-navigation]");
 const navSticky = primaryNav.offsetTop;
@@ -89,25 +91,36 @@ setInterval(() => {
     try {
         const cartCountBox = document.querySelector("[data-cart-count-box]");
         const cartCountElement = document.querySelector("[data-cart-item-count]");
-        let itemCountNoParse = localStorage.getItem("itemCount");
-        if (itemCountNoParse != NaN && itemCountNoParse != null) {
-            const cartCount = JSON.parse(itemCountNoParse);
-            cartCountElement.innerText = parseInt(cartCount);
-            let productId = JSON.parse(localStorage.getItem("productId"));
-            if (productId == "") {
+        const itemCountNoParse = localStorage.getItem("itemCount");
+        
+        if (itemCountNoParse !== null) {
+            const cartCount = parseInt(itemCountNoParse, 10);
+            if (!isNaN(cartCount)) {
+                cartCountElement.innerText = cartCount;
+            } else {
                 localStorage.setItem("itemCount", 0);
                 cartCountElement.innerText = 0;
-                // display none
                 cartCountBox.style.display = "none";
             }
-            else {
-                cartCountBox.style.display = "flex";
-            }
+        } else {
+            localStorage.setItem("itemCount", 0);
+            cartCountElement.innerText = 0;
+            cartCountBox.style.display = "none";
+        }
+        const productId = localStorage.getItem("productId");
+        if (!productId || productId === "") {
+            localStorage.setItem("itemCount", 0);
+            cartCountElement.innerText = 0;
+            cartCountBox.style.display = "none";
+        } else {
+            cartCountBox.style.display = "flex";
         }
     } catch (error) {
         console.log(error);
     }
 }, 10);
+
+
 
 // ********************** Accordion *********************************
 const accordionItem = document.querySelectorAll("[data-accordion-item]");
