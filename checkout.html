@@ -127,32 +127,75 @@
     <main class="check-out-main">
         <div class="container check-grid-container grid max-mg-block max-pd-block">
             <section class="check-out-accordion  max-mg-block flex-dir-col">
-                <div data-accordion-item class="accordion-item">
-                    <h4 data-accordion-item-title  class="fs-15 fw-600 text-clr-secondary bg-clr-light sm-pd-block xs-pd-inline"><i
+                <div data-accordion-item class="accordion-item accordion-active">
+                    <h4 data-accordion-item-title
+                        class="fs-15 fw-600 text-clr-secondary bg-clr-light sm-pd-block xs-pd-inline"><i
                             class="text-clr-primary xs-pd-inline fa-solid fa-circle-check"></i> Billing Address</h4>
                     <div class="accordion-body flex ai-jc-center">
-                        <form action="" class="accordion-body-form flex-dir-col ai-jc-start xs-mg-block">
-                            <input class="xs-pd-inline xs-pd-block" type="text" placeholder="Name" required>
-                            <input class="xs-pd-inline xs-pd-block" type="email" placeholder="Email">
-                            <input class="xs-pd-inline xs-pd-block" type="text" placeholder="Address" required>
-                            <input class="xs-pd-inline xs-pd-block" type="tel" placeholder="Phone">
+                        <form data-billing-form action="" class="accordion-body-form width-100 flex-dir-col ai-jc-start xs-mg-block">
+                            <input data-input class="xs-pd-inline xs-pd-block" type="text" placeholder="Full Name" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="email" placeholder="Email" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="text" placeholder="Address" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="tel" placeholder="Phone" required>
                             <textarea class="xs-pd-block xs-pd-inline" cols="10" rows="10"
                                 placeholder="Say Something"></textarea>
                         </form>
                     </div>
                 </div>
                 <div data-accordion-item class="accordion-item">
-                    <h4 data-accordion-item-title  class="fs-15 fw-600 text-clr-secondary bg-clr-light sm-pd-block xs-pd-inline"><i
+                    <h4 data-accordion-item-title
+                        class="fs-15 fw-600 text-clr-secondary bg-clr-light sm-pd-block xs-pd-inline"><i
                             class="text-clr-primary xs-pd-inline fa-solid fa-circle-check"></i> Shipping Address</h4>
                     <div class="accordion-body flex ai-jc-start xs-pd-inline">
-                        <p class="xs-mg-block fs-15 fw-500 text-clr-secondary">Your shipping address form is here.</p>
+                        <form data-shipping-form action="" class="accordion-body-form width-100 flex-dir-col ai-jc-start xs-mg-block">
+                            <input data-input class="xs-pd-inline xs-pd-block" type="text" placeholder="Full Name" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="email" placeholder="Email" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="tel" placeholder="Phone" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="text" placeholder="Province" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="text" placeholder="District" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="text" placeholder="City" required>
+                            <input data-input class="xs-pd-inline xs-pd-block" type="text" placeholder="Location" required>
+                        </form>
                     </div>
                 </div>
                 <div data-accordion-item class="accordion-item">
-                    <h4 data-accordion-item-title  class="fs-15 fw-600 text-clr-secondary bg-clr-light sm-pd-block xs-pd-inline"><i
+                    <h4 data-accordion-item-title
+                        class="fs-15 fw-600 text-clr-secondary bg-clr-light sm-pd-block xs-pd-inline"><i
                             class="text-clr-primary xs-pd-inline fa-solid fa-circle-check"></i> Card Details</h4>
-                    <div class="accordion-body flex ai-jc-start xs-pd-inline">
-                        <p class="xs-mg-block fs-15 fw-500 text-clr-secondary">Your Card Details form is here.</p>
+                    <div class="accordion-body width-100 flex-dir-col ai-jc-center xs-pd-inline | payment-form">
+                        <div class="payment-form-head width-100 flex-dir-col ai-jc-center text-center sm-pd-block">
+                            <h3 class="fs-24 fw-600 text-clr-secondary">Payment Details</h3>
+                            <div class="payment-option-img width-50 flex ai-jc-sb max-pd-inline">
+                                <img src="Image/payment/mastercard.png" alt="master Card">
+                                <img src="Image/payment/visa.png" alt="visa Card">
+                                <img src="Image/payment/paypal.png" alt="paypal">
+                            </div>
+                        </div>
+                        <form data-payment-form class="width-100 flex-dir-col credit-card-form sm-pd-block" action="">
+                            <div class="flex-dir-col width-100 card-number">
+                                <label for="card-number" class="fs-13 fw-500 text-clr-secondary">Card Number</label>
+                                <input data-input data-credit-number class="xs-pd-block xs-pd-inline" type="text" maxlength="19"
+                                    placeholder="Card Number" name="card-number" required>
+                            </div>
+                            <div class="flex width-100">
+                                <div class="flex-dir-col width-100">
+                                    <label for="date" class="fs-13 fw-500 text-clr-secondary">Expiration Date</label>
+                                    <input data-input data-credit-expe class="xs-pd-block xs-pd-inline " type="month"
+                                        placeholder="MM/YY" name="date" id="date" required>
+                                </div>
+                                <div class="flex-dir-col width-100">
+                                    <label for="cvv-number" class="fs-13 fw-500 text-clr-secondary">CVV</label>
+                                    <input data-input data-credit-cvv class="xs-pd-block xs-pd-inline " type="number"
+                                        placeholder="CVV" name="cvv-number" required maxlength="3">
+                                </div>
+                            </div>
+                            <div class="flex-dir-col width-100">
+                                <label for="name" class="fs-13 fw-500 text-clr-secondary">Card Holder Name</label>
+                                <input data-input data-credit-holder-name class="xs-pd-block xs-pd-inline " type="text"
+                                    placeholder="Card Holder Name" name="name" required>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </section>

@@ -77,7 +77,7 @@ const couponCode = [
 ]
 
 const couponStorage = JSON.parse(localStorage.getItem("coupon"))
-// if(couponStorage == null || couponStorage == "" || couponStorage == undefined)
+if(couponStorage == null || couponStorage == "" || couponStorage == undefined)
     localStorage.setItem("coupon", JSON.stringify(couponCode));
 
 const productListStorage = JSON.parse(localStorage.getItem("productList"));

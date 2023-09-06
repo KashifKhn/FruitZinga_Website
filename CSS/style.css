@@ -283,7 +283,6 @@ ul {
   width: 50%;
 }
 
-
 .text-center {
   text-align: center !important;
 }
@@ -1876,7 +1875,7 @@ body {
   border-top: 2px double hsl(var(--clr-secondary), 0.2);
 }
 
-.accordion-item {
+.accordion-item h4 {
   cursor: pointer;
 }
 
@@ -1884,10 +1883,6 @@ body {
   display: none;
   border: 1px solid hsl(var(--clr-secondary), 0.1);
   border-top: none;
-}
-
-.accordion-body-form {
-  width: 100%;
 }
 
 .accordion-body-form input,
@@ -1912,6 +1907,20 @@ body {
 .accordion-item.accordion-active .accordion-body {
   display: flex;
   cursor: pointer;
+}
+
+.payment-form-head { 
+  border-bottom: 1px solid hsl(var(--clr-secondary), 0.3);
+}
+
+.payment-option-img img {
+  width: 50px;
+}
+
+.credit-card-form input {
+  outline: none;
+  border: 1px solid hsl(var(--clr-secondary), 0.2);
+  border-radius: 3px;
 }
 
 @media (max-width: 62em) {
