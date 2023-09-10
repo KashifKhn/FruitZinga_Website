@@ -83,34 +83,34 @@ const paymentForm = document.querySelector('[data-payment-form]');
 
 const placeOrderBtn = document.querySelector('[data-place-order-btn]');
 placeOrderBtn.addEventListener('click', () => {
-    // if(!localStorage.getItem("productId") || localStorage.getItem("productId") == "" || localStorage.getItem("productId") == null) {
-    //     alert("Please add product to cart");
-    //     return;
-    // }
-    // if (!(checkForm(billingForm) && checkForm(shippingForm) && checkForm(paymentForm)) ){
-    //     alert("Please fill the form First");
-    //     return;
-    // }
+    if(!localStorage.getItem("productId") || localStorage.getItem("productId") == "" || localStorage.getItem("productId") == null) {
+        alert("Please add product to cart");
+        return;
+    }
+    if (!(checkForm(billingForm) && checkForm(shippingForm) && checkForm(paymentForm)) ){
+        alert("Please fill the form First");
+        return;
+    }
     if (!checkCardNumber(cardNumberElement.value)) {
         alert("Card is invalid");
         return;
     }
-    // if (!checkCardExpires(cardExpireDateElement.value)) {
-    //     alert("Card is Expires");
-    //     return;
-    // }
-    // if(!checkCardCVV(cardCvvElement.value)) {
-    //     alert("Cvv is wrong")
-    //     return;
-    // }
-    // removeItemFromLocalStorage();
-    // alert("Place Order Successfully");
+    if (!checkCardExpires(cardExpireDateElement.value)) {
+        alert("Card is Expires");
+        return;
+    }
+    if(!checkCardCVV(cardCvvElement.value)) {
+        alert("Cvv is wrong")
+        return;
+    }
+    removeItemFromLocalStorage();
+    alert("Place Order Successfully");
 
 });
 
 
 function checkCardExpires(dateInput) {
-    const [year, month] = dateInput.split('-'); // Split using hyphen
+    const [year, month] = dateInput.split('-');
     const expDate = new Date(`${year}-${month}-01`);
     console.log(expDate);
     const currentDate = new Date();
