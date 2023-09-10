@@ -60,6 +60,21 @@ cardNumberElement.addEventListener('keyup', () => {
     cardNumberElement.value = cardNumber;
 });
 
+cardCvvElement.addEventListener('input', () => {
+    cardCvvElement.value = cardCvvElement.value.replace(/\D/g, '');
+    if (cardCvvElement.value.length > 3) {
+        cardCvvElement.value = cardCvvElement.value.slice(0, 3);
+    }
+});
+
+cardNumberElement.addEventListener('input', () => {
+    cardNumberElement.value = cardNumberElement.value.replace(/\D/g, '');
+    if (cardNumberElement.value.length > 19) {
+        cardNumberElement.value = cardNumberElement.value.slice(0, 19);
+    } 
+});
+
+
 const billingForm = document.querySelector('[data-billing-form ]');
 const shippingForm = document.querySelector('[data-shipping-form]');
 const paymentForm = document.querySelector('[data-payment-form]');
@@ -68,26 +83,28 @@ const paymentForm = document.querySelector('[data-payment-form]');
 
 const placeOrderBtn = document.querySelector('[data-place-order-btn]');
 placeOrderBtn.addEventListener('click', () => {
-    if(!localStorage.getItem("productId") || localStorage.getItem("productId") == "" || localStorage.getItem("productId") == null) {
-        alert("Please add product to cart");
+    // if(!localStorage.getItem("productId") || localStorage.getItem("productId") == "" || localStorage.getItem("productId") == null) {
+    //     alert("Please add product to cart");
+    //     return;
+    // }
+    // if (!(checkForm(billingForm) && checkForm(shippingForm) && checkForm(paymentForm)) ){
+    //     alert("Please fill the form First");
+    //     return;
+    // }
+    if (!checkCardNumber(cardNumberElement.value)) {
+        alert("Card is invalid");
         return;
     }
-    if (!(checkForm(billingForm) && checkForm(shippingForm) && checkForm(paymentForm)) ){
-        console.log("All forms are filled, proceed with order placement.");
-        alert("All are not filled");
-        return;
-    }
-    if (!checkCardExpires(cardExpireDateElement.value)) {
-        console.log("Card is valid");
-        alert("Card is Expires");
-        return;
-    }
-    if(!checkCardCVV(cardCvvElement.value)) {
-        alert("Cvv is wrong")
-        return;
-    }
-    removeItemFromLocalStorage();
-    alert("Place Order Successfully");
+    // if (!checkCardExpires(cardExpireDateElement.value)) {
+    //     alert("Card is Expires");
+    //     return;
+    // }
+    // if(!checkCardCVV(cardCvvElement.value)) {
+    //     alert("Cvv is wrong")
+    //     return;
+    // }
+    // removeItemFromLocalStorage();
+    // alert("Place Order Successfully");
 
 });
 
@@ -104,6 +121,13 @@ function checkCardExpires(dateInput) {
     return true;
 }
 
+function checkCardNumber(cardNumberInput) {
+    cardNumberInput = cardNumberInput.replace(/\D/g, '');
+    if (cardNumberInput.length != 19)
+        return false;
+    return true;
+}
+
 function checkCardCVV(cvvInput) {
     if (cvvInput >= 100 && cvvInput <= 999)
         return true; 
@@ -113,10 +137,8 @@ function checkCardCVV(cvvInput) {
 function checkForm(element) {
     const elementInput = element.querySelectorAll("[data-input]");
     for (const input of elementInput) {
-        if (input.value.trim() === '') {
-            alert("Please fill the form First");
-            return false; // Return false if any input is empty
-        }
+        if (input.value.trim() === '')
+            return false;
     }
     return true;
 }

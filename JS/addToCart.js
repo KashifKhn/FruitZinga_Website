@@ -164,6 +164,10 @@ const couponCodeInput = document.querySelector("[data-coupon-input]");
 const couponCodeBtn = document.querySelector("[data-coupon-apply-btn]");
 let couponCode = JSON.parse(localStorage.getItem("coupon"))
 couponCodeBtn.addEventListener("click", () => {
+    if((localStorage.getItem("couponDiscount"))) {
+        alert("Coupon Already Applied");
+        return;
+    }
     let couponCodeValue = couponCodeInput.value;
     let couponCodeObj = couponCode.find(code => code.code == couponCodeValue);
     if (couponCodeObj) {
